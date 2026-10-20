@@ -10,11 +10,14 @@ Template base, completo: vedi [`templates/gestionale`](../templates/gestionale).
 
 ---
 
-## 2. Tavola — ristoranti, bar, delivery e prenotazioni
+## 2. Tavola — ristoranti, bar, delivery e prenotazioni ✅
+
+Template completo: vedi [`templates/ristorante`](../templates/ristorante). Sintesi iniziale:
+
 
 - **Obiettivo:** sito pubblico con menu e prenotazione del tavolo, ordini da asporto/delivery e un pannello per sala e cucina.
 - **Pagine:** home, menu (filtri per allergeni e diete), prenota un tavolo, ordina online (carrello, ritiro/consegna, orario), conferma ordine; pannello con prenotazioni, mappa della sala, ordini in tempo reale (stile kanban: nuovo → in preparazione → pronto → consegnato), gestione del menu, orari e chiusure.
-- **Stile:** caldo e appetitoso ma sobrio; accento terracotta, fotografie dei piatti come protagoniste.
+- **Stile:** caldo e appetitoso ma sobrio; accento terracotta e titoli serif. Il template funziona senza fotografie (menu testuale, leggibile e indicizzabile); le foto si aggiungono con `next/image`.
 - **Note legali:** indicazione dei 14 allergeni (Reg. UE 1169/2011); prezzi IVA inclusa; condizioni di vendita e recesso per gli ordini online (con le esclusioni per i prodotti deperibili); privacy per le prenotazioni.
 
 ## 3. Forma — palestre, centri fitness e wellness

@@ -1,0 +1,29 @@
+# Dipendenze
+/node_modules
+
+# Build Next.js
+/.next/
+/out/
+/build
+
+# Test
+/coverage
+/playwright-report
+/test-results
+/blob-report
+
+# Variabili d'ambiente: si versiona solo l'esempio
+.env*
+!.env.example
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Varie
+.DS_Store
+*.pem
+npm-debug.log*

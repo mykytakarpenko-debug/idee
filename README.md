@@ -9,7 +9,7 @@ Ogni template è un'**app autonoma** nella cartella `templates/<nome>`: si copia
 | # | Template | Cartella | Settore | Accento | Stato |
 | - | --- | --- | --- | --- | --- |
 | 1 | **Nucleo** | [`templates/gestionale`](templates/gestionale) | Gestionale e CRM: dashboard, clienti, servizi, appuntamenti, calendario, pagamenti, report | Blu cobalto | ✅ v1.0 |
-| 2 | Tavola | `templates/ristorante` | Ristoranti, bar, delivery e prenotazioni | Terracotta | Pianificato |
+| 2 | **Tavola** | [`templates/ristorante`](templates/ristorante) | Ristoranti: menu con allergeni, prenotazione tavoli, ordini d'asporto e consegna, pannello per sala e cucina | Terracotta | ✅ v1.0 |
 | 3 | Forma | `templates/fitness` | Palestre, centri fitness e wellness | Verde salvia | Pianificato |
 | 4 | Agenda | `templates/prenotazioni` | Aziende di servizi e prenotazioni online | Petrolio | Pianificato |
 | 5 | Bottega | `templates/ecommerce` | E-commerce e marketplace | Ambra | Pianificato |
@@ -19,9 +19,12 @@ Ogni template è un'**app autonoma** nella cartella `templates/<nome>`: si copia
 
 Sintesi e note legali di ogni template sono in [`docs/roadmap.md`](docs/roadmap.md). Si procede un template alla volta, a partire da **Nucleo**, che è la base condivisa di design system e componenti.
 
-<p align="center">
-  <img src="templates/gestionale/docs/screenshots/dashboard-light.png" alt="Nucleo: dashboard del gestionale" width="900" />
-</p>
+<table>
+  <tr>
+    <td><img src="templates/gestionale/docs/screenshots/dashboard-light.png" alt="Nucleo: dashboard del gestionale" /></td>
+    <td><img src="templates/ristorante/docs/screenshots/home-light.png" alt="Tavola: home del sito del ristorante" /></td>
+  </tr>
+</table>
 
 ## Standard comuni
 
@@ -61,7 +64,8 @@ La pubblicazione definitiva avviene solo dopo la checklist di [`docs/rilascio.md
 ```text
 .
 ├── templates/
-│   └── gestionale/          # Nucleo (app Next.js autonoma)
+│   ├── gestionale/          # Nucleo (app Next.js autonoma)
+│   └── ristorante/          # Tavola
 ├── docs/
 │   ├── roadmap.md           # Gli 8 template: sintesi, palette, note legali
 │   ├── standard-ux.md       # Principi di design e UX condivisi

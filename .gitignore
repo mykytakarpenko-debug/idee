@@ -1,0 +1,27 @@
+# Dipendenze e build (tutti i template)
+node_modules/
+.next/
+out/
+build/
+coverage/
+playwright-report/
+test-results/
+blob-report/
+*.tsbuildinfo
+next-env.d.ts
+
+# Variabili d'ambiente: si versiona solo l'esempio
+.env*
+!.env.example
+
+# Vercel
+.vercel
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+*.pem
+npm-debug.log*
+.idea/
+.vscode/*
+!.vscode/extensions.json

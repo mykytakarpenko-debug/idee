@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Qualità · ${{ matrix.template }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        template: [gestionale]
+    defaults:
+      run:
+        working-directory: templates/${{ matrix.template }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: templates/${{ matrix.template }}/.nvmrc
+          cache: npm
+          cache-dependency-path: templates/${{ matrix.template }}/package-lock.json
+
+      - name: Installazione
+        run: npm ci
+
+      - name: Formattazione
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Tipi
+        run: npm run typecheck
+
+      - name: Test unitari
+        run: npm test
+
+      - name: Build di produzione
+        run: npm run build
+
+      - name: Browser per i test end-to-end
+        run: npx playwright install --with-deps chromium
+
+      - name: Test end-to-end e accessibilità
+        run: npm run test:e2e
+
+      - name: Report Playwright
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.template }}
+          path: templates/${{ matrix.template }}/playwright-report
+          retention-days: 14

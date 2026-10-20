@@ -11,7 +11,7 @@ Ogni template è un'**app autonoma** nella cartella `templates/<nome>`: si copia
 | 1 | **Nucleo** | [`templates/gestionale`](templates/gestionale) | Gestionale e CRM: dashboard, clienti, servizi, appuntamenti, calendario, pagamenti, report | Blu cobalto | ✅ v1.0 |
 | 2 | **Tavola** | [`templates/ristorante`](templates/ristorante) | Ristoranti: menu con allergeni, prenotazione tavoli, ordini d'asporto e consegna, pannello per sala e cucina | Terracotta | ✅ v1.0 |
 | 3 | **Forma** | [`templates/fitness`](templates/fitness) | Palestre e centri fitness: corsi, orari, prezzi, prova gratuita, area socio con prenotazioni e lista d'attesa, reception con check-in | Verde salvia | ✅ v1.0 |
-| 4 | Agenda | `templates/prenotazioni` | Aziende di servizi e prenotazioni online | Petrolio | Pianificato |
+| 4 | **Agenda** | [`templates/prenotazioni`](templates/prenotazioni) | Studi e attività su appuntamento: prenotazione online in 4 passi, widget incorporabile, gestione del cliente con codice, agenda dello studio con orari, assenze e servizi | Petrolio | ✅ v1.0 |
 | 5 | Bottega | `templates/ecommerce` | E-commerce e marketplace | Ambra | Pianificato |
 | 6 | Portale | `templates/portale` | Dashboard amministrative e portali clienti | Indaco | Pianificato |
 | 7 | Arena | `templates/gioco` | Scommesse, slot e giochi con strumenti di gioco responsabile | Smeraldo | Pianificato |
@@ -23,7 +23,10 @@ Sintesi e note legali di ogni template sono in [`docs/roadmap.md`](docs/roadmap.
   <tr>
     <td><img src="templates/gestionale/docs/screenshots/dashboard-light.png" alt="Nucleo: dashboard del gestionale" /></td>
     <td><img src="templates/ristorante/docs/screenshots/home-light.png" alt="Tavola: home del sito del ristorante" /></td>
+  </tr>
+  <tr>
     <td><img src="templates/fitness/docs/screenshots/home-light.png" alt="Forma: home del sito della palestra" /></td>
+    <td><img src="templates/prenotazioni/docs/screenshots/prenota-light.png" alt="Agenda: scelta di giorno e orario nella prenotazione online" /></td>
   </tr>
 </table>
 
@@ -67,7 +70,8 @@ La pubblicazione definitiva avviene solo dopo la checklist di [`docs/rilascio.md
 ├── templates/
 │   ├── gestionale/          # Nucleo (app Next.js autonoma)
 │   ├── ristorante/          # Tavola
-│   └── fitness/             # Forma
+│   ├── fitness/             # Forma
+│   └── prenotazioni/        # Agenda
 ├── docs/
 │   ├── roadmap.md           # Gli 8 template: sintesi, palette, note legali
 │   ├── standard-ux.md       # Principi di design e UX condivisi

@@ -21,21 +21,23 @@ export function createIcsEvent(event: {
   location: string;
   description: string;
 }): string {
-  return [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Tavola//Prenotazioni//IT",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
-    "BEGIN:VEVENT",
-    `UID:${event.uid}`,
-    `DTSTAMP:${stamp(new Date())}`,
-    `DTSTART:${stamp(event.start)}`,
-    `DTEND:${stamp(event.end)}`,
-    `SUMMARY:${escapeText(event.title)}`,
-    `LOCATION:${escapeText(event.location)}`,
-    `DESCRIPTION:${escapeText(event.description)}`,
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
+  return (
+    [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//Tavola//Prenotazioni//IT",
+      "CALSCALE:GREGORIAN",
+      "METHOD:PUBLISH",
+      "BEGIN:VEVENT",
+      `UID:${event.uid}`,
+      `DTSTAMP:${stamp(new Date())}`,
+      `DTSTART:${stamp(event.start)}`,
+      `DTEND:${stamp(event.end)}`,
+      `SUMMARY:${escapeText(event.title)}`,
+      `LOCATION:${escapeText(event.location)}`,
+      `DESCRIPTION:${escapeText(event.description)}`,
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n") + "\r\n"
+  );
 }

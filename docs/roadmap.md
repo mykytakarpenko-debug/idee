@@ -30,7 +30,9 @@ Template completo: vedi [`templates/fitness`](../templates/fitness). Sintesi ini
 - **Stile:** energico ma pulito; accento verde salvia, tipografia più decisa.
 - **Note legali:** il certificato medico è un dato sanitario (art. 9 GDPR) e richiede misure dedicate; contratti di abbonamento con rinnovo e disdetta chiari (Codice del Consumo); consenso per le immagini nelle gallerie.
 
-## 4. Agenda — aziende di servizi e prenotazioni online
+## 4. Agenda — aziende di servizi e prenotazioni online ✅
+
+Template completo: vedi [`templates/prenotazioni`](../templates/prenotazioni). Sintesi iniziale (l'acconto online è documentato come integrazione con un PSP):
 
 - **Obiettivo:** il "lato cliente" di Nucleo: prenotazione self-service in 3 passi per studi, consulenti e professionisti.
 - **Pagine:** pagina pubblica dell'attività, scelta del servizio, dell'operatore e dello slot disponibile, dati e conferma, gestione della prenotazione (sposta/annulla tramite link), pagamento di un acconto facoltativo; widget incorporabile.

@@ -1,0 +1,728 @@
+/**
+ * Testi dell'interfaccia di Forma (italiano).
+ * Modifica qui i testi senza toccare i componenti; per tradurre duplica il file
+ * mantenendo le stesse chiavi.
+ */
+import type {
+  BookingStatus,
+  CourseCategory,
+  Intensity,
+  PaymentMethod,
+  PaymentStatus,
+  Room,
+  TrialInterest,
+  TrialStatus,
+} from "@/lib/domain/types";
+import type { BookingBlock } from "@/lib/domain/booking";
+import type { CheckInBlock, CheckInWarning } from "@/lib/domain/checkin";
+import type { CertificateStatus, MembershipStatus } from "@/lib/domain/membership";
+
+const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
+
+export const copy = {
+  common: {
+    save: "Salva",
+    saveChanges: "Salva modifiche",
+    cancel: "Annulla",
+    close: "Chiudi",
+    edit: "Modifica",
+    delete: "Elimina",
+    add: "Aggiungi",
+    confirm: "Conferma",
+    search: "Cerca",
+    all: "Tutti",
+    actions: "Azioni",
+    moreActions: "Altre azioni",
+    loading: "Caricamento…",
+    optional: "facoltativo",
+    today: "Oggi",
+    tomorrow: "Domani",
+    previous: "Precedente",
+    next: "Successivo",
+    resetFilters: "Azzera filtri",
+    notes: "Note",
+    yes: "Sì",
+    no: "No",
+    page: (current: number, total: number) => `Pagina ${current} di ${total}`,
+    showing: (from: number, to: number, total: number) => `${from}–${to} di ${total}`,
+    results: (n: number) => `${n} ${plural(n, "risultato", "risultati")}`,
+    minutes: (n: number) => `${n} min`,
+    days: (n: number) => `${n} ${plural(n, "giorno", "giorni")}`,
+    entries: (n: number) => `${n} ${plural(n, "ingresso", "ingressi")}`,
+    seats: (n: number) => `${n} ${plural(n, "posto", "posti")}`,
+    perMonth: "/mese",
+    perYear: "/anno",
+    addToCalendar: "Aggiungi al calendario",
+  },
+
+  a11y: {
+    skipToContent: "Vai al contenuto principale",
+    mainNavigation: "Navigazione principale",
+    memberNavigation: "Navigazione dell'area socio",
+    panelNavigation: "Navigazione del pannello",
+    mobileNavigation: "Navigazione rapida",
+    pagination: "Paginazione",
+    sortBy: (label: string) => `Ordina per ${label}`,
+    notifications: "Notifiche",
+    openMenu: "Apri il menu",
+    breadcrumb: "Percorso",
+  },
+
+  theme: {
+    label: "Tema",
+    light: "Chiaro",
+    dark: "Scuro",
+    system: "Sistema",
+    toggle: "Cambia tema",
+  },
+
+  categories: {
+    forza: "Forza",
+    cardio: "Cardio",
+    mente_corpo: "Mente e corpo",
+    ritmo: "Ritmo e danza",
+  } satisfies Record<CourseCategory, string>,
+
+  interests: {
+    forza: "Forza e functional",
+    cardio: "Cardio e cycle",
+    mente_corpo: "Yoga, pilates e mobilità",
+    ritmo: "Ritmo e danza",
+    sala_pesi: "Sala attrezzi",
+  } satisfies Record<TrialInterest, string>,
+
+  intensity: {
+    1: "Intensità bassa",
+    2: "Intensità media",
+    3: "Intensità alta",
+  } satisfies Record<Intensity, string>,
+
+  rooms: {
+    funzionale: "Sala funzionale",
+    cycle: "Sala cycle",
+    studio: "Studio",
+  } satisfies Record<Room, string>,
+
+  weekdays: ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"],
+  weekdaysShort: ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"],
+
+  status: {
+    membership: {
+      active: "Attivo",
+      expiring: "In scadenza",
+      expired: "Scaduto",
+      suspended: "Sospeso",
+    } satisfies Record<MembershipStatus, string>,
+    certificate: {
+      valid: "Certificato valido",
+      expiring: "Certificato in scadenza",
+      expired: "Certificato scaduto",
+      missing: "Certificato mancante",
+      not_required: "Non richiesto",
+    } satisfies Record<CertificateStatus, string>,
+    booking: {
+      booked: "Prenotato",
+      waitlist: "In lista d'attesa",
+      cancelled: "Cancellato",
+      attended: "Presente",
+      no_show: "Assente",
+    } satisfies Record<BookingStatus, string>,
+    payment: {
+      paid: "Pagato",
+      due: "Da pagare",
+      failed: "Non riuscito",
+    } satisfies Record<PaymentStatus, string>,
+    trial: {
+      new: "Nuova",
+      contacted: "Contattata",
+      converted: "Iscritta",
+      lost: "Non interessata",
+    } satisfies Record<TrialStatus, string>,
+  },
+
+  paymentMethods: {
+    card: "Carta",
+    sepa: "Addebito SEPA",
+    cash: "Contanti",
+  } satisfies Record<PaymentMethod, string>,
+
+  bookingBlocks: {
+    past: "Lezione già iniziata",
+    too_far: "Prenotabile più avanti",
+    session_cancelled: "Lezione annullata",
+    already_booked: "Già prenotata",
+    membership_inactive: "Abbonamento non attivo",
+    plan_excludes_classes: "Il tuo piano non include i corsi",
+    no_entries: "Ingressi del carnet esauriti",
+    certificate: "Certificato medico da rinnovare",
+    daily_limit: "Limite giornaliero raggiunto",
+    full: "Lezione al completo",
+  } satisfies Record<BookingBlock, string>,
+
+  demo: {
+    banner:
+      "Sito demo: iscritti, prenotazioni e pagamenti sono simulati e restano in questo browser.",
+    panel: "Area gestione",
+    member: "Area socio",
+    reset: "Ripristina dati demo",
+    resetDone: "Dati demo ripristinati",
+  },
+
+  // --------------------------------------------------------------------------
+  // Sito pubblico
+  // --------------------------------------------------------------------------
+  site: {
+    nav: { courses: "Corsi", schedule: "Orari", pricing: "Prezzi", trial: "Prova gratuita" },
+    login: "Area socio",
+    cta: { trial: "Prova gratuita", schedule: "Vedi gli orari", pricing: "Scopri i prezzi" },
+    openNow: (until: string) => `Aperto ora · fino alle ${until}`,
+    closedNow: "Chiuso ora",
+    opensAt: (when: string) => `Apre ${when}`,
+    footer: {
+      hours: "Orari di apertura",
+      contacts: "Contatti",
+      info: "Informazioni",
+      privacy: "Privacy",
+      terms: "Condizioni di abbonamento",
+      panel: "Area gestione (demo)",
+      vat: "P. IVA",
+      closed: "Chiuso",
+      rights: "Tutti i diritti riservati.",
+    },
+  },
+
+  home: {
+    eyebrow: "Palestra e studio corsi a Milano",
+    title: "Allenati con metodo. Senti la differenza.",
+    stats: {
+      classes: "lezioni a settimana",
+      instructors: "istruttori qualificati",
+      capacity: "persone al massimo per lezione",
+    },
+    categoriesTitle: "Trova il tuo allenamento",
+    categoriesHint: "Quattro famiglie di corsi, ognuna con livelli diversi.",
+    coursesCount: (n: number) => `${n} ${plural(n, "corso", "corsi")}`,
+    todayTitle: "Oggi al club",
+    todayHint: "Le prossime lezioni in programma.",
+    todayEmpty: "Per oggi le lezioni sono finite. Guarda il palinsesto della settimana.",
+    seatsLeft: (n: number) =>
+      n === 0 ? "Al completo" : `${n} ${plural(n, "posto libero", "posti liberi")}`,
+    plansTitle: "Piani semplici, senza vincoli nascosti",
+    plansHint: "Prezzi IVA inclusa. Disdici il rinnovo quando vuoi dall'area socio.",
+    teamTitle: "Gli istruttori",
+    teamHint: "Professionisti che conoscono il tuo nome.",
+    visitTitle: "Vieni a trovarci",
+    directions: "Indicazioni stradali",
+    trialTitle: "La prima lezione la offriamo noi",
+    trialText:
+      "Scegli un corso e un orario: ti aspettiamo 10 minuti prima per conoscerti e mostrarti il club.",
+  },
+
+  courses: {
+    title: "Corsi",
+    description: "Lezioni di gruppo a numero chiuso, per ogni livello e obiettivo.",
+    allCategories: "Tutte",
+    beginner: "Adatto a chi inizia",
+    duration: (n: number) => `${n} minuti`,
+    weekly: (n: number) => `${n} ${plural(n, "volta", "volte")} a settimana`,
+    with: "Con",
+    seeSchedule: "Vedi gli orari",
+    empty: "Nessun corso in questa categoria",
+  },
+
+  schedule: {
+    title: "Orari delle lezioni",
+    description:
+      "Il palinsesto settimanale. I soci prenotano dall'area socio fino a 7 giorni prima.",
+    filter: "Filtra per categoria",
+    day: "Giorno",
+    noClasses: "Nessuna lezione in questo giorno.",
+    book: "Prenota dall'area socio",
+    room: "Sala",
+  },
+
+  pricing: {
+    title: "Prezzi",
+    description: "Scegli come allenarti. Nessuna quota nascosta: prezzi IVA inclusa.",
+    billing: "Fatturazione",
+    monthly: "Mensile",
+    annual: "Annuale",
+    annualBadge: "2 mesi gratis",
+    perMonth: "al mese",
+    perYearNote: (total: string) => `${total} all'anno, in un'unica soluzione`,
+    pack: (entries: number, days: number) => `${entries} ingressi, validi ${days} giorni`,
+    featured: "Il più scelto",
+    choose: "Inizia con una prova",
+    compareTitle: "Confronta i piani",
+    compare: {
+      feature: "Cosa include",
+      gym: "Sala attrezzi e cardio",
+      classes: "Lezioni di gruppo",
+      booking: "Prenotazione dall'app",
+      renewal: "Rinnovo automatico disattivabile",
+    },
+    faqTitle: "Domande frequenti",
+    faq: [
+      {
+        q: "C'è una quota di iscrizione?",
+        a: "No. Paghi solo il piano scelto. L'assicurazione infortuni è inclusa nel prezzo.",
+      },
+      {
+        q: "Come funziona il rinnovo?",
+        a: "Gli abbonamenti mensili e annuali si rinnovano automaticamente alla scadenza. Puoi disattivare il rinnovo in qualsiasi momento dall'area socio: l'abbonamento resta valido fino alla fine del periodo pagato.",
+      },
+      {
+        q: "Posso recedere dopo l'acquisto online?",
+        a: "Sì: per gli acquisti a distanza hai 14 giorni per recedere. Se nel frattempo hai iniziato ad allenarti, ti rimborsiamo la parte non utilizzata.",
+      },
+      {
+        q: "Serve il certificato medico?",
+        a: "Sì, il regolamento del club richiede un certificato per attività sportiva non agonistica in corso di validità. Lo mostri in reception: registriamo solo la data di scadenza.",
+      },
+      {
+        q: "Posso sospendere l'abbonamento?",
+        a: "Per infortunio o gravidanza puoi sospenderlo fino a 60 giorni presentando la documentazione in reception.",
+      },
+    ],
+    legal:
+      "Prezzi IVA inclusa. Le condizioni complete di abbonamento, rinnovo, recesso e sospensione sono disponibili in reception e inviate via email prima del pagamento.",
+  },
+
+  trial: {
+    title: "Prova gratuita",
+    description:
+      "Una lezione o un ingresso in sala, senza impegno. Ti ricontattiamo per confermare.",
+    interest: "Cosa ti piacerebbe provare?",
+    session: "Scegli una lezione",
+    sessionHint: "Lezioni dei prossimi 5 giorni con posti liberi.",
+    noSession: "Preferisco essere ricontattato per scegliere insieme",
+    noSessions:
+      "Nessuna lezione disponibile nei prossimi giorni per questa scelta: ti ricontattiamo noi.",
+    details: "I tuoi dati",
+    name: "Nome e cognome",
+    email: "Email",
+    phone: "Telefono",
+    adult:
+      "Dichiaro di avere almeno 18 anni (per i minorenni la richiesta va fatta da un genitore).",
+    privacy: "Ho letto l'informativa privacy e acconsento a essere ricontattato per la prova.",
+    marketing: "Desidero ricevere novità e promozioni del club (facoltativo).",
+    submit: "Richiedi la prova",
+    sentTitle: "Richiesta inviata",
+    sentText: (name: string) => `Grazie ${name}! Ti contattiamo entro 24 ore per confermare.`,
+    sentSession: (course: string, when: string) =>
+      `Ti abbiamo riservato un posto a ${course}, ${when}.`,
+    bring: "Porta scarpe pulite, un asciugamano e una bottiglia d'acqua.",
+    another: "Invia un'altra richiesta",
+    disabled: "Al momento non accettiamo richieste di prova online. Chiamaci o passa in reception.",
+  },
+
+  login: {
+    title: "Accedi all'area socio",
+    description: "Prenota le lezioni, controlla l'abbonamento e gestisci i tuoi dati.",
+    email: "Email",
+    password: "Password",
+    submit: "Accedi",
+    demoHint: "Demo: le credenziali sono già inserite, premi Accedi.",
+    forgot: "Password dimenticata? Chiedi in reception un nuovo invito.",
+  },
+
+  privacy: {
+    title: "Informativa privacy",
+    updated: "Ultimo aggiornamento",
+  },
+
+  // --------------------------------------------------------------------------
+  // Area socio
+  // --------------------------------------------------------------------------
+  member: {
+    nav: {
+      overview: "Panoramica",
+      book: "Prenota",
+      membership: "Abbonamento",
+      profile: "Profilo",
+      logout: "Esci",
+      site: "Sito del club",
+    },
+    greeting: (name: string) => `Ciao, ${name}`,
+    overview: {
+      membership: "Il tuo abbonamento",
+      validUntil: (date: string) => `Valido fino al ${date}`,
+      renewsOn: (date: string) => `Si rinnova il ${date}`,
+      entriesLeft: (n: number) => `${n} ${plural(n, "ingresso rimasto", "ingressi rimasti")}`,
+      code: "Il tuo codice socio",
+      codeHint: "Mostralo in reception per entrare.",
+      next: "Le tue prossime lezioni",
+      nextEmpty: "Nessuna lezione prenotata",
+      nextEmptyHint: "Prenota una lezione: i posti sono limitati.",
+      bookCta: "Prenota una lezione",
+      certificateExpiring: (date: string) =>
+        `Il tuo certificato medico scade il ${date}. Portane uno nuovo in reception per continuare ad allenarti.`,
+      certificateExpired:
+        "Il tuo certificato medico è scaduto: non puoi prenotare finché non ne porti uno nuovo in reception.",
+      membershipExpiring: (date: string) =>
+        `Il tuo abbonamento scade il ${date} e non si rinnova da solo.`,
+      monthStats: "Questo mese",
+      visits: (n: number) => `${n} ${plural(n, "ingresso", "ingressi")}`,
+      classes: (n: number) => `${n} ${plural(n, "lezione", "lezioni")}`,
+    },
+    book: {
+      title: "Prenota una lezione",
+      description: (days: number, hours: number) =>
+        `Prenota fino a ${days} giorni prima. Cancella entro ${hours} ore dall'inizio per non perdere l'ingresso.`,
+      day: "Giorno",
+      category: "Categoria",
+      book: "Prenota",
+      join: (n: number) => `Lista d'attesa (${n})`,
+      joinEmpty: "Lista d'attesa",
+      cancel: "Cancella",
+      leave: "Esci dalla lista",
+      booked: "Prenotata",
+      waitlist: (position: number) => `In lista d'attesa · ${position}°`,
+      free: (n: number, total: number) => `${n} su ${total} liberi`,
+      full: "Al completo",
+      empty: "Nessuna lezione in questo giorno",
+      emptyHint: "Prova a scegliere un altro giorno o un'altra categoria.",
+      bookedToast: (course: string) => `Prenotazione confermata: ${course}`,
+      waitlistToast: (position: number) =>
+        `Sei in lista d'attesa (${position}°). Ti avvisiamo se si libera un posto.`,
+      cancelledToast: "Prenotazione cancellata",
+      lateTitle: "Cancellazione tardiva",
+      lateText: (hours: number) =>
+        `Mancano meno di ${hours} ore all'inizio. Puoi cancellare, ma la lezione verrà conteggiata come svolta (per i carnet l'ingresso non viene restituito).`,
+      lateConfirm: "Cancella comunque",
+      cancelTitle: "Cancellare la prenotazione?",
+      cancelText: "Il posto verrà assegnato al primo in lista d'attesa.",
+    },
+    membership: {
+      title: "Abbonamento",
+      plan: "Piano",
+      cycle: { monthly: "Mensile", annual: "Annuale", pack: "Carnet" },
+      period: "Periodo",
+      price: "Importo",
+      autoRenew: "Rinnovo automatico",
+      autoRenewOn: (date: string, amount: string) =>
+        `Il prossimo addebito di ${amount} sarà il ${date}.`,
+      autoRenewOff: (date: string) =>
+        `Il rinnovo è disattivato: l'abbonamento termina il ${date}. Puoi riattivarlo quando vuoi.`,
+      autoRenewPack: "I carnet non si rinnovano automaticamente.",
+      disableTitle: "Disattivare il rinnovo automatico?",
+      disableText: (date: string) =>
+        `L'abbonamento resterà valido fino al ${date} e non ci saranno altri addebiti. È così che si disdice.`,
+      disableConfirm: "Disattiva rinnovo",
+      disabled: "Rinnovo disattivato",
+      enabled: "Rinnovo riattivato",
+      change: "Vuoi cambiare piano?",
+      changeHint: "Vedi i piani disponibili e chiedi il cambio in reception.",
+      payments: "Pagamenti",
+      paymentsEmpty: "Nessun pagamento registrato",
+      date: "Data",
+      description: "Descrizione",
+      method: "Metodo",
+      amount: "Importo",
+      status: "Stato",
+      rights:
+        "Recesso: per gli abbonamenti acquistati online hai 14 giorni dal pagamento (art. 52 Codice del Consumo). Scrivici o passa in reception.",
+    },
+    profile: {
+      title: "Profilo",
+      personal: "Dati personali",
+      name: "Nome e cognome",
+      email: "Email",
+      phone: "Telefono",
+      saved: "Dati aggiornati",
+      consents: "Consensi",
+      marketing: "Comunicazioni promozionali",
+      marketingHint: "Novità, eventi e offerte del club via email.",
+      images: "Foto e video negli spazi del club",
+      imagesHint: "Possiamo pubblicare foto delle lezioni in cui compari sui canali del club.",
+      consentSaved: "Preferenza salvata",
+      certificate: "Certificato medico",
+      certificateExpiry: (date: string) => `Scadenza: ${date}`,
+      certificateMissing: "Nessun certificato registrato.",
+      certificateHint:
+        "Per la tua privacy registriamo solo la data di scadenza: il certificato lo mostri in reception e non viene conservato online.",
+      data: "I tuoi dati",
+      export: "Scarica i miei dati",
+      exportHint:
+        "Un file JSON con anagrafica, abbonamento, prenotazioni, ingressi e pagamenti (art. 15 e 20 GDPR).",
+      appearance: "Aspetto",
+    },
+  },
+
+  // --------------------------------------------------------------------------
+  // Pannello
+  // --------------------------------------------------------------------------
+  panel: {
+    nav: {
+      dashboard: "Panoramica",
+      members: "Iscritti",
+      classes: "Lezioni",
+      checkin: "Check-in",
+      plans: "Piani",
+      settings: "Impostazioni",
+      site: "Vedi il sito",
+      more: "Altro",
+    },
+    area: "Area gestione",
+    newMember: "Nuovo iscritto",
+  },
+
+  dashboard: {
+    title: "Panoramica",
+    kpi: {
+      active: "Iscritti attivi",
+      newThisMonth: (n: number) => `${n} nuovi questo mese`,
+      checkinsToday: "Ingressi oggi",
+      vsLastWeek: (n: number) => `${n >= 0 ? "+" : ""}${n} rispetto a 7 giorni fa`,
+      occupancy: "Occupazione lezioni",
+      occupancyHint: "settimana in corso",
+      expiring: "In scadenza",
+      expiringHint: (days: number) => `entro ${days} giorni`,
+    },
+    todayClasses: "Lezioni di oggi",
+    todayClassesEmpty: "Nessuna lezione oggi",
+    trials: "Richieste di prova",
+    trialsEmpty: "Nessuna nuova richiesta",
+    markContacted: "Segna contattata",
+    contacted: "Richiesta segnata come contattata",
+    expiringTitle: "Abbonamenti in scadenza",
+    expiringEmpty: "Nessuna scadenza nei prossimi giorni",
+    renew: "Rinnova",
+    renewed: (name: string) => `Abbonamento di ${name} rinnovato`,
+    checkinsChart: "Ingressi negli ultimi 14 giorni",
+    certificatesTitle: "Certificati da rinnovare",
+  },
+
+  members: {
+    title: "Iscritti",
+    description: "Anagrafica, abbonamenti e certificati.",
+    searchPlaceholder: "Cerca per nome, email o codice",
+    filters: {
+      status: "Stato abbonamento",
+      certificate: "Certificato",
+      anyCertificate: "Tutti i certificati",
+      certificateIssues: "Da rinnovare o mancanti",
+    },
+    columns: {
+      name: "Iscritto",
+      plan: "Piano",
+      status: "Stato",
+      expiry: "Scadenza",
+      certificate: "Certificato",
+      lastVisit: "Ultimo ingresso",
+    },
+    never: "Mai",
+    empty: "Nessun iscritto trovato",
+    emptyHint: "Modifica la ricerca o i filtri.",
+    count: (n: number) => `${n} ${plural(n, "iscritto", "iscritti")}`,
+    detail: {
+      title: "Scheda iscritto",
+      since: (date: string) => `Iscritto dal ${date}`,
+      membership: "Abbonamento",
+      contacts: "Contatti",
+      activity: "Attività",
+      visits30: "Ingressi negli ultimi 30 giorni",
+      classes30: "Lezioni negli ultimi 30 giorni",
+      upcoming: "Prenotazioni attive",
+      payments: "Ultimi pagamenti",
+      checkin: "Registra ingresso",
+      renew: "Rinnova abbonamento",
+      suspend: "Sospendi",
+      resume: "Riattiva",
+      suspended: "Abbonamento sospeso",
+      resumed: "Abbonamento riattivato",
+      export: "Esporta dati (GDPR)",
+    },
+    form: {
+      createTitle: "Nuovo iscritto",
+      editTitle: "Modifica iscritto",
+      firstName: "Nome",
+      lastName: "Cognome",
+      email: "Email",
+      phone: "Telefono",
+      plan: "Piano",
+      cycle: "Fatturazione",
+      start: "Inizio abbonamento",
+      certificate: "Scadenza certificato medico",
+      certificateHint: "Solo la data: non caricare né conservare il documento.",
+      autoRenew: "Rinnovo automatico",
+      marketing: "Consenso comunicazioni promozionali",
+      images: "Consenso foto e video",
+      notes: "Note interne",
+      notesHint: "Non inserire informazioni sulla salute.",
+      created: "Iscritto aggiunto",
+      updated: "Dati aggiornati",
+    },
+  },
+
+  classes: {
+    title: "Lezioni",
+    description: "Palinsesto della settimana, prenotati e presenze.",
+    thisWeek: "Questa settimana",
+    weekOf: (date: string) => `Settimana del ${date}`,
+    booked: (taken: number, capacity: number) => `${taken}/${capacity}`,
+    waitlist: (n: number) => `+${n} in attesa`,
+    cancelled: "Annullata",
+    empty: "Nessuna lezione",
+    session: {
+      roster: "Prenotati",
+      rosterEmpty: "Nessun prenotato",
+      waitlist: "Lista d'attesa",
+      trials: "Prove gratuite",
+      present: "Presente",
+      absent: "Assente",
+      promote: "Assegna il posto",
+      promoted: (name: string) => `Posto assegnato a ${name}`,
+      capacity: "Capienza",
+      capacitySaved: "Capienza aggiornata",
+      cancel: "Annulla lezione",
+      cancelTitle: "Annullare la lezione?",
+      cancelText:
+        "Le prenotazioni verranno cancellate e i soci avvisati (in demo non parte nessun messaggio).",
+      cancelledToast: "Lezione annullata",
+      attendance: "Presenze registrate",
+      instructor: "Istruttore",
+    },
+  },
+
+  checkin: {
+    title: "Check-in",
+    description: "Cerca un socio o inserisci il codice per registrare l'ingresso.",
+    searchPlaceholder: "Nome o codice socio (es. RC-1007)",
+    noResults: "Nessun socio trovato",
+    hint: "Digita almeno 2 caratteri.",
+    register: "Registra ingresso",
+    registered: (name: string) => `Ingresso registrato: ${name}`,
+    allowed: "Ingresso consentito",
+    denied: "Ingresso non consentito",
+    blocks: {
+      suspended: "Abbonamento sospeso",
+      expired: "Abbonamento scaduto",
+      no_entries: "Carnet esaurito",
+      certificate_expired: "Certificato medico scaduto",
+      certificate_missing: "Certificato medico mancante",
+    } satisfies Record<CheckInBlock, string>,
+    warnings: {
+      membership_expiring: "Abbonamento in scadenza: ricorda il rinnovo",
+      certificate_expiring: "Certificato in scadenza: chiedi quello nuovo",
+      already_today: "Ha già fatto un ingresso oggi",
+      last_entry: "Ultimo ingresso del carnet",
+    } satisfies Record<CheckInWarning, string>,
+    today: "Ingressi di oggi",
+    todayEmpty: "Ancora nessun ingresso oggi",
+    todayCount: (n: number) => `${n} ${plural(n, "ingresso", "ingressi")}`,
+  },
+
+  plans: {
+    title: "Piani",
+    description: "Abbonamenti e carnet in vendita.",
+    newPlan: "Nuovo piano",
+    active: "In vendita",
+    inactive: "Non in vendita",
+    toggle: (name: string) => `In vendita: ${name}`,
+    members: (n: number) => `${n} ${plural(n, "iscritto", "iscritti")}`,
+    monthly: "Mensile",
+    pack: "Carnet",
+    form: {
+      createTitle: "Nuovo piano",
+      editTitle: "Modifica piano",
+      name: "Nome",
+      description: "Descrizione",
+      billing: "Tipo",
+      price: "Prezzo (€)",
+      priceHint: "Al mese per gli abbonamenti, totale per i carnet.",
+      entries: "Ingressi",
+      validity: "Validità (giorni)",
+      gym: "Include sala attrezzi",
+      classes: "Include lezioni",
+      featured: "In evidenza sul sito",
+      perks: "Vantaggi (uno per riga)",
+      created: "Piano creato",
+      updated: "Piano aggiornato",
+    },
+  },
+
+  settings: {
+    title: "Impostazioni",
+    description: "Dati del club, orari e regole di prenotazione.",
+    sections: {
+      info: "Club",
+      hours: "Orari di apertura",
+      booking: "Prenotazioni",
+      rules: "Regole",
+      data: "Dati demo",
+    },
+    info: {
+      name: "Nome del club",
+      tagline: "Frase di presentazione",
+      address: "Indirizzo",
+      postalCode: "CAP",
+      city: "Città",
+      phone: "Telefono",
+      email: "Email",
+      vat: "Partita IVA",
+      saved: "Dati del club salvati",
+    },
+    hours: {
+      intro: 'Usati per il sito e per lo stato "aperto ora".',
+      open: "Aperto",
+      closed: "Chiuso",
+      from: "dalle",
+      to: "alle",
+      saved: "Orari salvati",
+      invalid: "L'orario di chiusura deve essere successivo all'apertura.",
+    },
+    booking: {
+      intro: "Regole applicate all'area socio.",
+      window: "Giorni di anticipo per prenotare",
+      cancel: "Ore per cancellare senza penale",
+      maxDaily: "Lezioni prenotabili al giorno",
+      waitlist: "Lista d'attesa automatica",
+      waitlistHint:
+        "Quando una lezione è piena i soci si mettono in coda e ricevono il posto che si libera.",
+      saved: "Regole di prenotazione salvate",
+    },
+    rules: {
+      certificate: "Certificato medico obbligatorio",
+      certificateHint: "Blocca prenotazioni e ingressi con certificato scaduto o mancante.",
+      reminder: "Giorni di preavviso per le scadenze",
+      trial: "Richieste di prova dal sito",
+      saved: "Regole salvate",
+    },
+    data: {
+      intro:
+        "In demo tutti i dati restano nel browser e sono condivisi tra sito, area socio e pannello.",
+      reset: "Ripristina dati demo",
+      resetHint: "Rigenera iscritti, lezioni, prenotazioni, ingressi e pagamenti di esempio.",
+      resetTitle: "Ripristinare i dati demo?",
+      resetText: "Le modifiche fatte finora verranno perse.",
+    },
+  },
+
+  validation: {
+    required: "Campo obbligatorio",
+    email: "Inserisci un indirizzo email valido",
+    phone: "Inserisci un numero di telefono valido",
+    amount: "Inserisci un importo valido, es. 49,00",
+    postalCode: "Inserisci un CAP di 5 cifre",
+    consent: "Per continuare è necessario il consenso",
+    adult: "Conferma di essere maggiorenne",
+    date: "Inserisci una data valida",
+    tooLong: (max: number) => `Massimo ${max} caratteri`,
+    number: "Inserisci un numero valido",
+    password: "Inserisci la password",
+  },
+
+  errors: {
+    notFoundTitle: "Pagina non trovata",
+    notFoundBody: "La pagina che cerchi non esiste o è stata spostata.",
+    goHome: "Torna alla home",
+    genericTitle: "Qualcosa non ha funzionato",
+    genericBody: "Si è verificato un errore imprevisto. Riprova tra un istante.",
+    retry: "Riprova",
+    storage:
+      "Il browser non consente di salvare i dati: le modifiche valgono solo per questa sessione.",
+  },
+} as const;
+
+export type Copy = typeof copy;

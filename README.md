@@ -10,7 +10,7 @@ Ogni template è un'**app autonoma** nella cartella `templates/<nome>`: si copia
 | - | --- | --- | --- | --- | --- |
 | 1 | **Nucleo** | [`templates/gestionale`](templates/gestionale) | Gestionale e CRM: dashboard, clienti, servizi, appuntamenti, calendario, pagamenti, report | Blu cobalto | ✅ v1.0 |
 | 2 | **Tavola** | [`templates/ristorante`](templates/ristorante) | Ristoranti: menu con allergeni, prenotazione tavoli, ordini d'asporto e consegna, pannello per sala e cucina | Terracotta | ✅ v1.0 |
-| 3 | Forma | `templates/fitness` | Palestre, centri fitness e wellness | Verde salvia | Pianificato |
+| 3 | **Forma** | [`templates/fitness`](templates/fitness) | Palestre e centri fitness: corsi, orari, prezzi, prova gratuita, area socio con prenotazioni e lista d'attesa, reception con check-in | Verde salvia | ✅ v1.0 |
 | 4 | Agenda | `templates/prenotazioni` | Aziende di servizi e prenotazioni online | Petrolio | Pianificato |
 | 5 | Bottega | `templates/ecommerce` | E-commerce e marketplace | Ambra | Pianificato |
 | 6 | Portale | `templates/portale` | Dashboard amministrative e portali clienti | Indaco | Pianificato |
@@ -23,6 +23,7 @@ Sintesi e note legali di ogni template sono in [`docs/roadmap.md`](docs/roadmap.
   <tr>
     <td><img src="templates/gestionale/docs/screenshots/dashboard-light.png" alt="Nucleo: dashboard del gestionale" /></td>
     <td><img src="templates/ristorante/docs/screenshots/home-light.png" alt="Tavola: home del sito del ristorante" /></td>
+    <td><img src="templates/fitness/docs/screenshots/home-light.png" alt="Forma: home del sito della palestra" /></td>
   </tr>
 </table>
 
@@ -65,7 +66,8 @@ La pubblicazione definitiva avviene solo dopo la checklist di [`docs/rilascio.md
 .
 ├── templates/
 │   ├── gestionale/          # Nucleo (app Next.js autonoma)
-│   └── ristorante/          # Tavola
+│   ├── ristorante/          # Tavola
+│   └── fitness/             # Forma
 ├── docs/
 │   ├── roadmap.md           # Gli 8 template: sintesi, palette, note legali
 │   ├── standard-ux.md       # Principi di design e UX condivisi

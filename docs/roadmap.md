@@ -20,7 +20,10 @@ Template completo: vedi [`templates/ristorante`](../templates/ristorante). Sinte
 - **Stile:** caldo e appetitoso ma sobrio; accento terracotta e titoli serif. Il template funziona senza fotografie (menu testuale, leggibile e indicizzabile); le foto si aggiungono con `next/image`.
 - **Note legali:** indicazione dei 14 allergeni (Reg. UE 1169/2011); prezzi IVA inclusa; condizioni di vendita e recesso per gli ordini online (con le esclusioni per i prodotti deperibili); privacy per le prenotazioni.
 
-## 3. Forma — palestre, centri fitness e wellness
+## 3. Forma — palestre, centri fitness e wellness ✅
+
+Template completo: vedi [`templates/fitness`](../templates/fitness). Sintesi iniziale:
+
 
 - **Obiettivo:** acquisizione di nuovi iscritti dal sito e gestione di abbonamenti, corsi e ingressi.
 - **Pagine:** sito con corsi, orari, istruttori, prezzi e prova gratuita; area socio (prenotazione corsi, abbonamento, pagamenti, progressi); pannello con iscritti, abbonamenti in scadenza, calendario dei corsi con capienza e lista d'attesa, check-in, report di retention.

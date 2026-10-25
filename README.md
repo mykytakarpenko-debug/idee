@@ -14,7 +14,7 @@ Ogni template è un'**app autonoma** nella cartella `templates/<nome>`: si copia
 | 4 | **Agenda** | [`templates/prenotazioni`](templates/prenotazioni) | Studi e attività su appuntamento: prenotazione online in 4 passi, widget incorporabile, gestione del cliente con codice, agenda dello studio con orari, assenze e servizi | Petrolio | ✅ v1.0 |
 | 5 | **Bottega** | [`templates/ecommerce`](templates/ecommerce) | E-commerce e marketplace: catalogo con filtri, schede prodotto con varianti e recensioni, carrello, checkout in una pagina, resi online, pannello con ordini, scorte, promozioni (regola Omnibus) e venditori | Ambra | ✅ v1.0 |
 | 6 | **Portale** | [`templates/portale`](templates/portale) | Area clienti e amministrazione B2B: accesso in due passaggi, progetti, documenti, ticket con SLA e note interne, fatture, team con 5 ruoli, registro attività, impostazioni | Indaco | ✅ v1.0 |
-| 7 | Arena | `templates/gioco` | Scommesse, slot e giochi con strumenti di gioco responsabile | Smeraldo | Pianificato |
+| 7 | **Arena** | [`templates/gioco`](templates/gioco) | Scommesse e giochi con gioco responsabile: verifica dell'età, quote e schedina, slot con RTP calcolato, limiti, promemoria, pause, autoesclusione, pannello operatore con segnali di rischio | Smeraldo | ✅ v1.0 |
 | 8 | Vetrina | `templates/landing` | Landing page, siti vetrina e SaaS | Configurabile | Pianificato |
 
 Sintesi e note legali di ogni template sono in [`docs/roadmap.md`](docs/roadmap.md). Si procede un template alla volta, a partire da **Nucleo**, che è la base condivisa di design system e componenti.
@@ -31,6 +31,10 @@ Sintesi e note legali di ogni template sono in [`docs/roadmap.md`](docs/roadmap.
   <tr>
     <td><img src="templates/ecommerce/docs/screenshots/prodotto-light.png" alt="Bottega: scheda prodotto in offerta con prezzo più basso degli ultimi 30 giorni" /></td>
     <td><img src="templates/portale/docs/screenshots/portale-light.png" alt="Portale: panoramica dell'area clienti con progetti, scadenze e referente" /></td>
+  </tr>
+  <tr>
+    <td><img src="templates/gioco/docs/screenshots/home-light.png" alt="Arena: home con avvertenze, prossimi eventi e giochi con RTP" /></td>
+    <td></td>
   </tr>
 </table>
 
@@ -77,7 +81,8 @@ La pubblicazione definitiva avviene solo dopo la checklist di [`docs/rilascio.md
 │   ├── fitness/             # Forma
 │   ├── prenotazioni/        # Agenda
 │   ├── ecommerce/           # Bottega
-│   └── portale/             # Portale
+│   ├── portale/             # Portale
+│   └── gioco/               # Arena
 ├── docs/
 │   ├── roadmap.md           # Gli 8 template: sintesi, palette, note legali
 │   ├── standard-ux.md       # Principi di design e UX condivisi

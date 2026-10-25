@@ -57,7 +57,9 @@ Template completo: vedi [`templates/portale`](../templates/portale). Sintesi ini
 - **Stile:** professionale e denso di informazioni; accento indaco.
 - **Note legali:** ruoli e permessi granulari, registro delle attività, conservazione dei documenti, accordi di nomina a responsabile del trattamento con i clienti business.
 
-## 7. Arena — scommesse, slot e giochi (con gioco responsabile)
+## 7. Arena — scommesse, slot e giochi (con gioco responsabile) ✅
+
+Template completo: vedi [`templates/gioco`](../templates/gioco). Sintesi iniziale:
 
 - **Obiettivo:** interfaccia moderna per una piattaforma di gioco che mette al centro **tutela del giocatore e conformità**.
 - **Pagine:** lobby dei giochi, scheda evento con quote, schedina, conto di gioco (depositi e prelievi), storico, area "Gioco responsabile" (limiti di deposito, di tempo e di perdita, pause, autoesclusione), verifica dell'identità.

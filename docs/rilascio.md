@@ -30,7 +30,7 @@ flowchart LR
 ## 3. Checklist di verifica (sulla preview)
 
 ### Funzionale
-- [ ] I flussi principali del template funzionano dall'inizio alla fine (per Nucleo: cliente → appuntamento → completamento → pagamento → report; per Tavola: prenotazione dal sito → pannello, ordine → cucina → tracking; per Forma: prova gratuita → pannello, prenotazione e lista d'attesa → check-in; per Agenda: prenotazione → conferma o approvazione nel pannello → spostamento e cancellazione dal codice, widget in un `iframe` del dominio autorizzato; per Bottega: carrello → checkout → ordine nel pannello → spedizione, reso dall'area personale → rimborso, promozione con prezzo a 30 giorni; per Portale: accesso con codice per ogni ruolo → ticket del cliente → risposta e nota interna dello staff → risoluzione, invito e permessi del team, registro attività).
+- [ ] I flussi principali del template funzionano dall'inizio alla fine (per Nucleo: cliente → appuntamento → completamento → pagamento → report; per Tavola: prenotazione dal sito → pannello, ordine → cucina → tracking; per Forma: prova gratuita → pannello, prenotazione e lista d'attesa → check-in; per Agenda: prenotazione → conferma o approvazione nel pannello → spostamento e cancellazione dal codice, widget in un `iframe` del dominio autorizzato; per Bottega: carrello → checkout → ordine nel pannello → spedizione, reso dall'area personale → rimborso, promozione con prezzo a 30 giorni; per Portale: accesso con codice per ogni ruolo → ticket del cliente → risposta e nota interna dello staff → risoluzione, invito e permessi del team, registro attività; per Arena: verifica dell'età → registrazione → giocata entro i limiti → promemoria e limite di sessione → refertazione nel pannello, pausa e autoesclusione).
 - [ ] Stati vuoti, errori di validazione, conferme e annullamenti si comportano come previsto.
 - [ ] I dati demo si ripristinano correttamente.
 
@@ -77,5 +77,6 @@ flowchart LR
 | Agenda | `templates/prenotazioni` | `agenda-prenotazioni` |
 | Bottega | `templates/ecommerce` | `bottega-ecommerce` |
 | Portale | `templates/portale` | `portale-clienti` |
+| Arena | `templates/gioco` | `arena-gioco` |
 
 Ogni `vercel.json` di template imposta install, build, regione `fra1` e `ignoreCommand`, così un commit che non tocca il template non lo ricompila.

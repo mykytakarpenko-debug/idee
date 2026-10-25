@@ -1,0 +1,406 @@
+/*
+ * Arena — design tokens e stili di base.
+ *
+ * Tutti i colori sono token semantici (canvas, surface, fg, accent…) definiti
+ * come variabili CSS per tema chiaro e scuro. Per cambiare il branding modifica
+ * solo questo blocco: i componenti usano esclusivamente i token.
+ * Contrasti verificati WCAG 2.2 AA (testo ≥ 4.5:1, controlli ≥ 3:1).
+ */
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------------------------------------------------------------------------
+ * 1. Token — tema chiaro (default)
+ * ------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  /* Superfici */
+  --canvas: #f8f6f2; /* sfondo pagina, bianco caldo */
+  --surface: #ffffff; /* card, pannelli, modali */
+  --surface-2: #f2efe9; /* riempimenti tenui, hover */
+  --surface-3: #e8e4dc; /* stato premuto, selezione */
+  --overlay: rgb(24 20 16 / 0.4);
+
+  /* Linee */
+  --line: #e6e1d8; /* bordi decorativi di card e tabelle */
+  --line-strong: #8a857c; /* bordi dei controlli (≥ 3:1) */
+
+  /* Testo */
+  --fg: #1c1a17;
+  --fg-muted: #5f5a52;
+  --fg-subtle: #6f6a62;
+
+  /* Accento — smeraldo */
+  --accent: #047857;
+  --accent-hover: #036b4d;
+  --accent-fg: #ffffff;
+  --accent-text: #04694b;
+  --accent-soft: #e2f3eb;
+  --accent-soft-fg: #064e3b;
+  --focus: #04694b;
+
+  /* Rulli delle slot */
+  --reel: #fbfaf7;
+
+  /* Stati */
+  --success: #17713e;
+  --success-soft: #e6f4ec;
+  --warning: #94500a;
+  --warning-soft: #fcf1e1;
+  --danger: #bb3127;
+  --danger-solid: #c2352c;
+  --danger-soft: #fbeae8;
+  --info: #0a6580;
+  --info-soft: #e3f2f6;
+
+  /* Serie dei grafici e colori identità (ordine fisso, validato per daltonismo) */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #6250d6;
+  --series-8: #e34948;
+  --grid: #ece8e1;
+
+  /* Profondità */
+  --elevation-xs: 0 1px 2px rgb(20 20 22 / 0.05);
+  --elevation-sm: 0 1px 2px rgb(20 20 22 / 0.04), 0 2px 6px rgb(20 20 22 / 0.04);
+  --elevation-md: 0 2px 4px rgb(20 20 22 / 0.04), 0 8px 24px rgb(20 20 22 / 0.08);
+  --elevation-lg: 0 4px 8px rgb(20 20 22 / 0.04), 0 20px 48px rgb(20 20 22 / 0.14);
+}
+
+/* ---------------------------------------------------------------------------
+ * 2. Token — tema scuro (valori selezionati, non invertiti automaticamente)
+ * ------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: #0f0d0b;
+  --surface: #171512;
+  --surface-2: #1f1c18;
+  --surface-3: #29251f;
+  --overlay: rgb(0 0 0 / 0.6);
+
+  --line: #2c2823;
+  --line-strong: #6e685f;
+
+  --fg: #f4f1ec;
+  --fg-muted: #aaa49a;
+  --fg-subtle: #948e84;
+
+  --accent: #06805c;
+  --accent-hover: #0a7352;
+  --accent-fg: #ffffff;
+  --accent-text: #4fd1a1;
+  --accent-soft: #0f2a20;
+  --accent-soft-fg: #8fe3c1;
+  --focus: #4fd1a1;
+
+  --reel: #1d1b17;
+
+  --success: #5bc98a;
+  --success-soft: #132a1d;
+  --warning: #ebaa4e;
+  --warning-soft: #2e2311;
+  --danger: #ff8a80;
+  --danger-solid: #c8392f;
+  --danger-soft: #361a1c;
+  --info: #5cc2df;
+  --info-soft: #10282f;
+
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #008300;
+  --series-7: #9085e9;
+  --series-8: #e66767;
+  --grid: #25221d;
+
+  --elevation-xs: 0 1px 2px rgb(0 0 0 / 0.4);
+  --elevation-sm: 0 1px 2px rgb(0 0 0 / 0.4), 0 2px 6px rgb(0 0 0 / 0.25);
+  --elevation-md: 0 2px 4px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.4);
+  --elevation-lg: 0 4px 8px rgb(0 0 0 / 0.3), 0 20px 48px rgb(0 0 0 / 0.55);
+}
+
+/* ---------------------------------------------------------------------------
+ * 3. Mappatura dei token sulle utility Tailwind (bg-surface, text-fg-muted…)
+ * ------------------------------------------------------------------------- */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-overlay: var(--overlay);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-text: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-fg: var(--accent-soft-fg);
+  --color-focus: var(--focus);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-solid: var(--danger-solid);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-grid: var(--grid);
+  --color-reel: var(--reel);
+
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-xs: var(--elevation-xs);
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+}
+
+@theme {
+  /* Raggi: angoli morbidi e coerenti */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+
+  /* Movimento: rapido e discreto */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --animate-fade-in: fade-in 160ms var(--ease-out) both;
+  --animate-slot-spin: slot-spin 200ms linear infinite;
+  --animate-fade-out: fade-out 120ms var(--ease-in) both;
+  --animate-pop-in: pop-in 180ms var(--ease-out) both;
+  --animate-pop-out: pop-out 120ms var(--ease-in) both;
+  --animate-dialog-in: dialog-in 220ms var(--ease-out) both;
+  --animate-dialog-out: dialog-out 140ms var(--ease-in) both;
+  --animate-sheet-in: sheet-in 240ms var(--ease-out) both;
+  --animate-sheet-out: sheet-out 160ms var(--ease-in) both;
+  --animate-sheet-up-in: sheet-up-in 260ms var(--ease-out) both;
+  --animate-sheet-up-out: sheet-up-out 180ms var(--ease-in) both;
+  --animate-sheet-left-in: sheet-left-in 240ms var(--ease-out) both;
+  --animate-sheet-left-out: sheet-left-out 160ms var(--ease-in) both;
+  --animate-toast-in: toast-in 220ms var(--ease-out) both;
+  --animate-toast-out: fade-out 140ms var(--ease-in) both;
+  --animate-page-in: page-in 220ms var(--ease-out) both;
+  --animate-shimmer: shimmer 1.4s ease-in-out infinite;
+  --animate-spin: spin 0.8s linear infinite;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px) scale(0.98);
+    }
+  }
+  @keyframes pop-out {
+    to {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+  @keyframes dialog-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+  @keyframes dialog-out {
+    to {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+  @keyframes sheet-up-in {
+    from {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes sheet-up-out {
+    to {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes sheet-in {
+    from {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes sheet-out {
+    to {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes sheet-left-in {
+    from {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes sheet-left-out {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+  @keyframes page-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+  @keyframes slot-spin {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6%);
+    }
+  }
+  @keyframes shimmer {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.55;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 4. Stili di base
+ * ------------------------------------------------------------------------- */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-feature-settings: "cv11", "ss03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+    color: var(--fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  /* Gli input interni gestiscono il proprio anello di focus */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline-offset: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Su mobile i campi a 16px evitano lo zoom automatico di iOS */
+  @media (max-width: 639px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 5. Accessibilità del movimento
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Modalità a contrasto forzato (Windows): i bordi restano visibili */
+@media (forced-colors: active) {
+  .forced-border {
+    border: 1px solid CanvasText;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 6. Stampa (ricevute, report)
+ * ------------------------------------------------------------------------- */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

@@ -42,16 +42,24 @@ export function CatalogWithParams() {
 export function CatalogView({ search }: { search: string }) {
   const router = useRouter();
   const pathname = routes.shop;
-  const filters = useMemo(() => parseFilters(new URLSearchParams(search)), [search]);
+  const urlFilters = useMemo(() => parseFilters(new URLSearchParams(search)), [search]);
+  // Copia locale dei filtri: due modifiche ravvicinate non si perdono mentre
+  // l'URL si aggiorna, e i controlli rispondono subito.
+  const [filters, setFilters] = useState(urlFilters);
+  const [lastSearch, setLastSearch] = useState(search);
+  if (search !== lastSearch) {
+    setLastSearch(search);
+    setFilters(urlFilters);
+  }
   const { products, categories, sellers, reviews } = useCatalog();
   const today = useToday();
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [query, setQuery] = useState(filters.q);
-  const [lastQ, setLastQ] = useState(filters.q);
-  if (filters.q !== lastQ) {
+  const [query, setQuery] = useState(urlFilters.q);
+  const [lastQ, setLastQ] = useState(urlFilters.q);
+  if (urlFilters.q !== lastQ) {
     // Ricerca dall'intestazione mentre il catalogo è già aperto.
-    setLastQ(filters.q);
-    setQuery(filters.q);
+    setLastQ(urlFilters.q);
+    setQuery(urlFilters.q);
   }
 
   const results = useMemo(
@@ -59,8 +67,11 @@ export function CatalogView({ search }: { search: string }) {
     [products, filters, today, reviews, categories, sellers],
   );
   const sellerById = new Map(sellers.map((s) => [s.id, s]));
-  const update = (patch: Partial<CatalogFilters>) =>
-    router.replace(`${pathname}${filtersToQuery({ ...filters, ...patch })}`, { scroll: false });
+  const update = (patch: Partial<CatalogFilters>) => {
+    const next = { ...filters, ...patch };
+    setFilters(next);
+    router.replace(`${pathname}${filtersToQuery(next)}`, { scroll: false });
+  };
   const activeCount = activeFilterCount(filters);
   const category = categories.find((c) => c.id === filters.category);
   const title = category?.name ?? (filters.onSale ? t.offersTitle : t.title);

@@ -72,7 +72,9 @@ Template completo: vedi [`templates/gioco`](../templates/gioco). Sintesi inizial
   - antiriciclaggio (D.Lgs. 231/2007).
   La demo userà **solo crediti virtuali senza valore** e mostrerà i flussi di tutela come parte integrante dell'esperienza.
 
-## 8. Vetrina — landing page, siti vetrina e SaaS
+## 8. Vetrina — landing page, siti vetrina e SaaS ✅
+
+Template completo: vedi [`templates/landing`](../templates/landing). Sintesi iniziale:
 
 - **Obiettivo:** pagine veloci e curate per presentare un'attività o lanciare un prodotto SaaS.
 - **Pagine:** landing modulare (hero, vantaggi, funzionalità, testimonianze, prezzi, FAQ, call to action), chi siamo, contatti con modulo antispam, blog/novità, prezzi SaaS con confronto dei piani, pagine legali.

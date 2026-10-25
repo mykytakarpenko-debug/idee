@@ -5,6 +5,15 @@ import { freezeTime, openPage, panelRoutes, pickService, siteRoutes, slotGroup }
 const TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"];
 
 async function expectNoViolations(page: Page) {
+  // Le transizioni di colore in corso (es. orario appena selezionato) falserebbero il contrasto.
+  await page.evaluate(() =>
+    Promise.all(
+      document
+        .getAnimations()
+        .filter((a) => Number.isFinite(a.effect?.getComputedTiming().endTime))
+        .map((a) => a.finished.catch(() => undefined)),
+    ),
+  );
   const results = await new AxeBuilder({ page }).withTags(TAGS).analyze();
   const summary = results.violations.map(
     (v) =>

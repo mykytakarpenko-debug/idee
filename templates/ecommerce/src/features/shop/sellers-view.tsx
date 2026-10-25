@@ -40,10 +40,15 @@ export function SellersView() {
                     <p className="text-sm text-fg-muted">
                       {seller.craft} · {seller.city} · {s.since(seller.since)}
                     </p>
-                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-fg">{seller.bio}</p>
+                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-fg">
+                      {seller.bio}
+                    </p>
                     <Link
                       href={routes.seller(seller.slug)}
-                      className={buttonClasses({ variant: "secondary", className: "mt-auto self-start" })}
+                      className={buttonClasses({
+                        variant: "secondary",
+                        className: "mt-auto self-start",
+                      })}
                     >
                       {copy.product.sellerPage}
                       <span className="sr-only">: {seller.name}</span>
@@ -118,7 +123,10 @@ export function SellerView({ slug }: { slug: string }) {
             <div className="flex gap-2">
               <dt className="text-fg-muted">{s.contact}</dt>
               <dd>
-                <a href={`mailto:${seller.legal.email}`} className="text-accent-text hover:underline">
+                <a
+                  href={`mailto:${seller.legal.email}`}
+                  className="text-accent-text hover:underline"
+                >
                   {seller.legal.email}
                 </a>
               </dd>

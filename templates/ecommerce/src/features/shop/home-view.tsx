@@ -49,7 +49,10 @@ export function HomeView() {
               <Link href={routes.shop} className={buttonClasses({ size: "lg" })}>
                 {h.primary}
               </Link>
-              <Link href={routes.sellers} className={buttonClasses({ variant: "secondary", size: "lg" })}>
+              <Link
+                href={routes.sellers}
+                className={buttonClasses({ variant: "secondary", size: "lg" })}
+              >
                 {h.secondary}
               </Link>
             </div>
@@ -152,7 +155,10 @@ export function HomeView() {
       </section>
 
       {offers.length > 0 ? (
-        <section aria-labelledby="offerte" className="border-t border-line bg-surface py-16 sm:py-20">
+        <section
+          aria-labelledby="offerte"
+          className="border-t border-line bg-surface py-16 sm:py-20"
+        >
           <Container>
             <SectionHeading
               id="offerte"
@@ -196,7 +202,10 @@ export function HomeView() {
                     >
                       <div className="size-14 shrink-0 overflow-hidden rounded-lg bg-surface-2">
                         {sample ? (
-                          <ProductArt kind={sample.art} color={sample.variants[0]?.color ?? "#ccc"} />
+                          <ProductArt
+                            kind={sample.art}
+                            color={sample.variants[0]?.color ?? "#ccc"}
+                          />
                         ) : null}
                       </div>
                       <div>

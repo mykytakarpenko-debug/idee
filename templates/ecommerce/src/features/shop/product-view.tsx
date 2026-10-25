@@ -111,7 +111,10 @@ export function ProductView({ slug }: { slug: string }) {
               <RotateCcw aria-hidden className="mt-0.5 size-4 shrink-0 text-fg-subtle" />
               <span>
                 {p.returns(settings.returnDays)}{" "}
-                <Link href={routes.withdrawal} className="text-accent-text underline-offset-2 hover:underline">
+                <Link
+                  href={routes.withdrawal}
+                  className="text-accent-text underline underline-offset-2"
+                >
                   {copy.site.footer.withdrawal}
                 </Link>
               </span>
@@ -256,11 +259,7 @@ function ProductMain({
           }}
         />
 
-        <StockNote
-          stock={variant.stock}
-          threshold={settings.lowStockThreshold}
-          className="mt-5"
-        />
+        <StockNote stock={variant.stock} threshold={settings.lowStockThreshold} className="mt-5" />
 
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <QuantityInput
@@ -381,7 +380,10 @@ function Reviews({ reviews }: { reviews: Review[] }) {
                   <div key={stars} className="flex items-center gap-3 text-[13px]">
                     <dt className="w-14 text-fg-muted">{copy.a11y.stars(stars)}</dt>
                     <dd className="flex flex-1 items-center gap-2">
-                      <span aria-hidden className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface-3">
+                      <span
+                        aria-hidden
+                        className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface-3"
+                      >
                         <span
                           className="block h-full rounded-full bg-accent"
                           style={{ width: `${(n / summary.count) * 100}%` }}

@@ -4,6 +4,7 @@
  * mantenendo le stesse chiavi.
  */
 import type {
+  ArtKind,
   CouponType,
   OrderStatus,
   PaymentMethod,
@@ -119,7 +120,8 @@ export const copy = {
     featured: "Scelti per te",
     featuredText: "I pezzi più amati del momento, disponibili subito.",
     offers: "In offerta",
-    offersText: "Promozioni in corso, con il prezzo più basso degli ultimi 30 giorni sempre indicato.",
+    offersText:
+      "Promozioni in corso, con il prezzo più basso degli ultimi 30 giorni sempre indicato.",
     sellers: "I laboratori",
     sellersText: "Persone e mani dietro ogni oggetto.",
     values: {
@@ -213,8 +215,7 @@ export const copy = {
     shippingFrom: "Calcolata al checkout",
     total: "Totale",
     vatIncluded: (amount: string) => `IVA inclusa (${amount})`,
-    freeShippingRemaining: (amount: string) =>
-      `Ti mancano ${amount} per la spedizione gratuita.`,
+    freeShippingRemaining: (amount: string) => `Ti mancano ${amount} per la spedizione gratuita.`,
     freeShippingReached: "Spedizione standard gratuita.",
     checkout: "Vai al checkout",
     continue: "Continua lo shopping",
@@ -264,24 +265,31 @@ export const copy = {
         label: "Carta di credito o debito",
         text: "Inserirai i dati della carta sulla pagina protetta del fornitore di pagamento.",
       },
-      paypal: { label: "PayPal", text: "Verrai reindirizzato a PayPal per completare il pagamento." },
+      paypal: {
+        label: "PayPal",
+        text: "Verrai reindirizzato a PayPal per completare il pagamento.",
+      },
       bank_transfer: {
         label: "Bonifico bancario",
         text: "Spediamo quando riceviamo il bonifico (1–2 giorni lavorativi).",
       },
     } satisfies Record<PaymentMethod, { label: string; text: string }>,
-    demoPayment: "Demo: nessun pagamento viene effettuato e nessun dato di pagamento viene raccolto.",
+    demoPayment:
+      "Demo: nessun pagamento viene effettuato e nessun dato di pagamento viene raccolto.",
     terms: "Ho letto e accetto le condizioni di vendita e l'informativa sul diritto di recesso.",
     conditionsLink: "Condizioni di vendita",
     withdrawalLink: "Diritto di recesso",
-    marketing: "Voglio ricevere novità e offerte via email (facoltativo, puoi annullare quando vuoi).",
-    privacyNote: "Trattiamo i tuoi dati per gestire l'ordine come descritto nell'informativa privacy.",
+    marketing:
+      "Voglio ricevere novità e offerte via email (facoltativo, puoi annullare quando vuoi).",
+    privacyNote:
+      "Trattiamo i tuoi dati per gestire l'ordine come descritto nell'informativa privacy.",
     submit: "Ordine con obbligo di pagamento",
     submitting: "Invio in corso…",
     precontract: (days: number) =>
       `Prezzi IVA inclusa. Puoi recedere entro ${days} giorni dalla consegna; garanzia legale di 24 mesi.`,
     empty: "Il carrello è vuoto: aggiungi qualcosa prima del checkout.",
-    stockChanged: "Alcuni articoli non sono più disponibili nella quantità richiesta: controlla il carrello.",
+    stockChanged:
+      "Alcuni articoli non sono più disponibili nella quantità richiesta: controlla il carrello.",
     signedInAs: (email: string) => `Hai effettuato l'accesso come ${email}.`,
     signIn: "Hai già un account? Accedi",
   },
@@ -305,7 +313,8 @@ export const copy = {
       `Bonifica ${total} con causale “${number}” entro 5 giorni. Spediremo appena riceviamo il pagamento.`,
     bankDetails: "IBAN IT00 X000 0000 0000 0000 0000 000 · Intestato a Materia S.r.l.",
     notFound: "Ordine non trovato",
-    notFoundHint: "In questa demo gli ordini sono salvati solo nel browser in cui sono stati fatti.",
+    notFoundHint:
+      "In questa demo gli ordini sono salvati solo nel browser in cui sono stati fatti.",
     continue: "Continua lo shopping",
     account: "Vai ai tuoi ordini",
   },
@@ -356,7 +365,8 @@ export const copy = {
     trackOrder: "Segui la spedizione",
     returnCta: "Richiedi un reso",
     returnUntil: (date: string) => `Puoi recedere fino al ${date}.`,
-    returnExpired: "Il termine per il recesso è scaduto. Per difetti vale la garanzia legale di 24 mesi: scrivici.",
+    returnExpired:
+      "Il termine per il recesso è scaduto. Per difetti vale la garanzia legale di 24 mesi: scrivici.",
     returnTitle: "Richiedi un reso",
     returnIntro: (days: number) =>
       `Puoi restituire gli articoli entro ${days} giorni dalla consegna senza indicare il motivo. Rimborsiamo con lo stesso metodo di pagamento entro 14 giorni dalla ricezione del reso.`,
@@ -471,7 +481,8 @@ export const copy = {
       delivered: "Segna come consegnato",
       cancel: "Annulla ordine",
       cancelTitle: "Annullare l'ordine?",
-      cancelText: "Le quantità tornano disponibili. Ricordati di rimborsare il cliente se ha già pagato.",
+      cancelText:
+        "Le quantità tornano disponibili. Ricordati di rimborsare il cliente se ha già pagato.",
     },
     advanced: (status: string) => `Ordine aggiornato: ${status}`,
     cancelled: "Ordine annullato",
@@ -528,6 +539,28 @@ export const copy = {
         `Prezzo più basso negli ultimi 30 giorni: ${amount}. Sconto mostrato: −${percent}%.`,
       omnibusNoDiscount: (amount: string) =>
         `Nei 30 giorni precedenti il prezzo è stato ${amount}: la promozione non può essere presentata come sconto.`,
+      art: "Illustrazione",
+      artHint: "Sostituibile con le foto reali: vedi la guida alla personalizzazione.",
+      artKinds: {
+        mug: "Tazza",
+        cups: "Tazzine",
+        plate: "Piatto",
+        bowl: "Ciotola",
+        vase: "Vaso",
+        teapot: "Teiera",
+        towel: "Canovaccio",
+        napkins: "Tovaglioli",
+        apron: "Grembiule",
+        basket: "Cesto",
+        board: "Tagliere",
+        spoons: "Utensili",
+        tray: "Vassoio",
+        notebook: "Taccuino",
+        cards: "Biglietti",
+        candle: "Candela",
+        tapers: "Candele affusolate",
+      } satisfies Record<ArtKind, string>,
+      variantColor: "Colore",
       featured: "In evidenza nella home",
       active: "In vendita",
       variants: "Varianti e scorte",
@@ -610,7 +643,8 @@ export const copy = {
       saved: "Spedizioni e resi salvati",
     },
     coupons: {
-      intro: "I codici si applicano al carrello; la regola Omnibus non riguarda i codici personali.",
+      intro:
+        "I codici si applicano al carrello; la regola Omnibus non riguarda i codici personali.",
       code: "Codice",
       type: "Tipo",
       types: {
@@ -663,7 +697,8 @@ export const copy = {
 
   errors: {
     genericTitle: "Qualcosa è andato storto",
-    genericBody: "Si è verificato un errore imprevisto. Riprova; se il problema continua, contattaci.",
+    genericBody:
+      "Si è verificato un errore imprevisto. Riprova; se il problema continua, contattaci.",
     retry: "Riprova",
     notFoundTitle: "Pagina non trovata",
     notFoundBody: "La pagina che cerchi non esiste o è stata spostata.",

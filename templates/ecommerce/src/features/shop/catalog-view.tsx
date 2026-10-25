@@ -122,7 +122,10 @@ export function CatalogView({ search }: { search: string }) {
               title={t.empty}
               description={t.emptyHint}
               action={
-                <Button variant="secondary" onClick={() => router.replace(pathname, { scroll: false })}>
+                <Button
+                  variant="secondary"
+                  onClick={() => router.replace(pathname, { scroll: false })}
+                >
                   {copy.common.resetFilters}
                 </Button>
               }

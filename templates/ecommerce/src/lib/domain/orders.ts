@@ -29,7 +29,9 @@ export function needsFulfilment(status: OrderStatus): boolean {
 
 /** Ordini che contano come vendite (pagati, anche se poi resi). */
 export function isSale(status: OrderStatus): boolean {
-  return status === "paid" || status === "processing" || status === "shipped" || status === "delivered";
+  return (
+    status === "paid" || status === "processing" || status === "shipped" || status === "delivered"
+  );
 }
 
 export function orderNumber(sequence: number): string {

@@ -118,6 +118,10 @@ export function customerStats(orders: readonly Order[], customerId: string): Cus
   return {
     orders: own.length,
     spent: own.reduce((acc, o) => acc + netRevenue(o), 0),
-    lastOrderAt: own.map((o) => o.createdAt).sort().at(-1) ?? null,
+    lastOrderAt:
+      own
+        .map((o) => o.createdAt)
+        .sort()
+        .at(-1) ?? null,
   };
 }

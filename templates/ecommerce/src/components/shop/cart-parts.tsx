@@ -112,31 +112,33 @@ export function CartTotalsList({
 }) {
   const shippingValue = totals.shipping === 0 ? copy.common.free : formatCurrency(totals.shipping);
   return (
-    <dl className={cn("space-y-2 text-sm", className)}>
-      <div className="flex justify-between gap-4">
-        <dt className="text-fg-muted">{c.subtotal}</dt>
-        <dd className="text-fg tabular-nums">{formatCurrency(totals.subtotal)}</dd>
-      </div>
-      {totals.discount > 0 && coupon ? (
+    <div className={className}>
+      <dl className="space-y-2 text-sm">
         <div className="flex justify-between gap-4">
-          <dt className="text-fg-muted">
-            {c.discount} ({coupon.code})
-          </dt>
-          <dd className="text-success tabular-nums">−{formatCurrency(totals.discount)}</dd>
+          <dt className="text-fg-muted">{c.subtotal}</dt>
+          <dd className="text-fg tabular-nums">{formatCurrency(totals.subtotal)}</dd>
         </div>
-      ) : null}
-      <div className="flex justify-between gap-4">
-        <dt className="text-fg-muted">{c.shipping}</dt>
-        <dd className="text-fg tabular-nums">{shippingValue}</dd>
-      </div>
-      <div className="flex justify-between gap-4 border-t border-line pt-3 text-base font-semibold">
-        <dt className="text-fg">{c.total}</dt>
-        <dd className="text-fg tabular-nums">{formatCurrency(totals.total)}</dd>
-      </div>
-      <p className="text-right text-xs text-fg-muted">
+        {totals.discount > 0 && coupon ? (
+          <div className="flex justify-between gap-4">
+            <dt className="text-fg-muted">
+              {c.discount} ({coupon.code})
+            </dt>
+            <dd className="text-success tabular-nums">−{formatCurrency(totals.discount)}</dd>
+          </div>
+        ) : null}
+        <div className="flex justify-between gap-4">
+          <dt className="text-fg-muted">{c.shipping}</dt>
+          <dd className="text-fg tabular-nums">{shippingValue}</dd>
+        </div>
+        <div className="flex justify-between gap-4 border-t border-line pt-3 text-base font-semibold">
+          <dt className="text-fg">{c.total}</dt>
+          <dd className="text-fg tabular-nums">{formatCurrency(totals.total)}</dd>
+        </div>
+      </dl>
+      <p className="mt-2 text-right text-xs text-fg-muted">
         {c.vatIncluded(formatCurrency(totals.vat))}
       </p>
-    </dl>
+    </div>
   );
 }
 

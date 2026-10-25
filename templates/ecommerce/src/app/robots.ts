@@ -8,7 +8,11 @@ import { env } from "@/config/env";
 export default function robots(): MetadataRoute.Robots {
   if (!env.allowIndexing) return { rules: { userAgent: "*", disallow: "/" } };
   return {
-    rules: { userAgent: "*", allow: "/", disallow: ["/gestione", "/carrello", "/checkout", "/ordine", "/account", "/accedi"] },
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/gestione", "/carrello", "/checkout", "/ordine", "/account", "/accedi"],
+    },
     sitemap: `${env.siteUrl}/sitemap.xml`,
   };
 }

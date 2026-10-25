@@ -78,7 +78,14 @@ function demoCoupons(today: ISODate): Coupon[] {
       expiresAt: shiftISODate(today, 40),
       active: true,
     },
-    { code: "GRAZIE5", type: "fixed", value: 500, minSubtotal: 5000, expiresAt: null, active: true },
+    {
+      code: "GRAZIE5",
+      type: "fixed",
+      value: 500,
+      minSubtotal: 5000,
+      expiresAt: null,
+      active: true,
+    },
     {
       code: "ESTATE15",
       type: "percent",
@@ -283,7 +290,10 @@ const DEFS: ProductDef[] = [
       "Ogni pezzo è unico: colore e forma variano leggermente",
     ],
     price: 2400,
-    history: [[-420, 2200], [-180, 2400]],
+    history: [
+      [-420, 2200],
+      [-180, 2400],
+    ],
     variants: [
       ["Salvia", COLOR.salvia, 12],
       ["Sabbia", COLOR.sabbia, 8],
@@ -304,7 +314,11 @@ const DEFS: ProductDef[] = [
     details: ["Gres smaltato, 80 ml ciascuna", "Altezza 6 cm", "Lavabili in lavastoviglie"],
     price: 3200,
     // Prezzo già applicato nei 30 giorni precedenti: la promozione non è annunciata come sconto.
-    history: [[-260, 3200], [-20, 2800], [-11, 3200]],
+    history: [
+      [-260, 3200],
+      [-20, 2800],
+      [-11, 3200],
+    ],
     sale: [2800, -3, 18],
     variants: [
       ["Avorio", COLOR.avorio, 10],
@@ -341,7 +355,11 @@ const DEFS: ProductDef[] = [
       "Profonda il giusto, con un'onda leggera sul bordo che la rende facile da tenere. Lo smalto si raccoglie nei solchi del tornio creando sfumature sempre diverse.",
     details: ["Gres smaltato, 600 ml", "Diametro 15 cm, altezza 7 cm", "Lavabile in lavastoviglie"],
     price: 2200,
-    history: [[-420, 2000], [-200, 2200], [-6, 1760]],
+    history: [
+      [-420, 2000],
+      [-200, 2200],
+      [-6, 1760],
+    ],
     sale: [1760, -6, 24],
     variants: [
       ["Azzurro", COLOR.azzurro, 14],
@@ -400,7 +418,13 @@ const DEFS: ProductDef[] = [
     details: ["100% lino", "50 × 70 cm", "Lavaggio a 40 °C"],
     price: 1600,
     // Una promozione breve nei 30 giorni precedenti abbassa il prezzo di riferimento.
-    history: [[-500, 1400], [-300, 1600], [-25, 1300], [-18, 1600], [-4, 1200]],
+    history: [
+      [-500, 1400],
+      [-300, 1600],
+      [-25, 1300],
+      [-18, 1600],
+      [-4, 1200],
+    ],
     sale: [1200, -4, 26],
     variants: [
       ["Rosso", COLOR.rosso, 25],
@@ -498,7 +522,10 @@ const DEFS: ProductDef[] = [
       "Lavare a mano, non in lavastoviglie",
     ],
     price: 4500,
-    history: [[-400, 4200], [-120, 4500]],
+    history: [
+      [-400, 4200],
+      [-120, 4500],
+    ],
     variants: [
       ["Noce", COLOR.noce, 9],
       ["Ciliegio", COLOR.ciliegio, 4],
@@ -560,7 +587,11 @@ const DEFS: ProductDef[] = [
     short: "192 pagine a righe, cucitura a vista, si apre piatto.",
     description:
       "Carta avoriata da 120 g che non lascia trasparire l'inchiostro, cucitura copta a vista che permette di aprirlo completamente piatto.",
-    details: ["Formato A5 (14,8 × 21 cm)", "192 pagine a righe, carta da 120 g", "Copertina in tela"],
+    details: [
+      "Formato A5 (14,8 × 21 cm)",
+      "192 pagine a righe, carta da 120 g",
+      "Copertina in tela",
+    ],
     price: 1800,
     history: [[-390, 1800]],
     variants: [
@@ -639,7 +670,10 @@ const DEFS: ProductDef[] = [
       "Leggi le avvertenze di sicurezza sull'etichetta",
     ],
     price: 2600,
-    history: [[-300, 2600], [-2, 2200]],
+    history: [
+      [-300, 2600],
+      [-2, 2200],
+    ],
     sale: [2200, -2, 12],
     variants: [
       ["Fico", COLOR.fico, 18],
@@ -968,9 +1002,21 @@ export function createDemoData(now: Date): DataSnapshot {
   // uno vecchio (recesso scaduto).
   const demo = customers[0]!;
   drafts.push(
-    { at: addHours(startOfDay(addDays(now, -9)), 18), customer: demo, forced: { status: "delivered" } },
-    { at: addHours(startOfDay(addDays(now, -2)), 11), customer: demo, forced: { status: "shipped" } },
-    { at: addHours(startOfDay(addDays(now, -64)), 20), customer: demo, forced: { status: "delivered" } },
+    {
+      at: addHours(startOfDay(addDays(now, -9)), 18),
+      customer: demo,
+      forced: { status: "delivered" },
+    },
+    {
+      at: addHours(startOfDay(addDays(now, -2)), 11),
+      customer: demo,
+      forced: { status: "shipped" },
+    },
+    {
+      at: addHours(startOfDay(addDays(now, -64)), 20),
+      customer: demo,
+      forced: { status: "delivered" },
+    },
   );
   drafts.sort((a, b) => a.at.getTime() - b.at.getTime());
 
@@ -1017,7 +1063,9 @@ export function createDemoData(now: Date): DataSnapshot {
       couponCandidate && subtotal >= couponCandidate.minSubtotal ? couponCandidate : null;
     const totals = cartTotals({ subtotal, coupon, method, settings });
 
-    const age = Math.round((startOfDay(now).getTime() - startOfDay(draft.at).getTime()) / 86_400_000);
+    const age = Math.round(
+      (startOfDay(now).getTime() - startOfDay(draft.at).getTime()) / 86_400_000,
+    );
     const status = draft.forced?.status ?? statusForAge(age, payment, random);
     const customer = draft.customer;
     const guest = customer ?? makeCustomer(1000 + index, random, draft.at);
@@ -1036,7 +1084,8 @@ export function createDemoData(now: Date): DataSnapshot {
     } else if (status !== "awaiting_payment") {
       const reached = FLOW.indexOf(status);
       FLOW.slice(0, reached + 1).forEach((step, i) => {
-        if (i > 0) cursor = addHours(cursor, step === "delivered" ? random.int(30, 70) : random.int(3, 20));
+        if (i > 0)
+          cursor = addHours(cursor, step === "delivered" ? random.int(30, 70) : random.int(3, 20));
         const at = new Date(Math.min(cursor.getTime(), now.getTime() - (FLOW.length - i) * 60_000));
         history.push({ at: at.toISOString(), status: step });
         if (step === "delivered") deliveredAt = at.toISOString();
@@ -1061,7 +1110,10 @@ export function createDemoData(now: Date): DataSnapshot {
       status,
       tracking:
         (status === "shipped" || status === "delivered") && method !== "pickup"
-          ? { carrier: random.pick(CARRIERS), code: `${random.int(100_000, 999_999)}${random.int(1000, 9999)}IT` }
+          ? {
+              carrier: random.pick(CARRIERS),
+              code: `${random.int(100_000, 999_999)}${random.int(1000, 9999)}IT`,
+            }
           : null,
       createdAt: draft.at.toISOString(),
       deliveredAt,

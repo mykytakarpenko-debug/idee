@@ -34,8 +34,8 @@ export default function ConditionsPage() {
       <h2>3. Ordine e conclusione del contratto</h2>
       <p>
         Prima dell&apos;invio vedi il riepilogo con prodotti, prezzi, spese e totale. Il contratto
-        si conclude quando premi “Ordine con obbligo di pagamento” e riceve conferma via email con
-        il numero d&apos;ordine. Se un prodotto non è più disponibile ti avvisiamo e, se hai già
+        si conclude quando premi “Ordine con obbligo di pagamento” e ricevi la conferma via email
+        con il numero d&apos;ordine. Se un prodotto non è più disponibile ti avvisiamo e, se hai già
         pagato, ti rimborsiamo entro 14 giorni.
       </p>
 
@@ -68,10 +68,10 @@ export default function ConditionsPage() {
       <h2>7. Garanzia legale di conformità</h2>
       <p>
         Tutti i prodotti godono della garanzia legale di conformità di 24 mesi dalla consegna
-        prevista dal Codice del Consumo. In caso di difetto scrivici: hai diritto alla
-        riparazione o sostituzione gratuita oppure, se non possibili, a una riduzione del prezzo o
-        alla risoluzione del contratto. Le piccole variazioni di colore e forma tipiche della
-        lavorazione a mano non sono difetti.
+        prevista dal Codice del Consumo. In caso di difetto scrivici: hai diritto alla riparazione o
+        sostituzione gratuita oppure, se non possibili, a una riduzione del prezzo o alla
+        risoluzione del contratto. Le piccole variazioni di colore e forma tipiche della lavorazione
+        a mano non sono difetti.
       </p>
 
       <h2>8. Reclami e controversie</h2>

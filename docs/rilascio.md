@@ -30,7 +30,7 @@ flowchart LR
 ## 3. Checklist di verifica (sulla preview)
 
 ### Funzionale
-- [ ] I flussi principali del template funzionano dall'inizio alla fine (per Nucleo: cliente → appuntamento → completamento → pagamento → report; per Tavola: prenotazione dal sito → pannello, ordine → cucina → tracking; per Forma: prova gratuita → pannello, prenotazione e lista d'attesa → check-in; per Agenda: prenotazione → conferma o approvazione nel pannello → spostamento e cancellazione dal codice, widget in un `iframe` del dominio autorizzato).
+- [ ] I flussi principali del template funzionano dall'inizio alla fine (per Nucleo: cliente → appuntamento → completamento → pagamento → report; per Tavola: prenotazione dal sito → pannello, ordine → cucina → tracking; per Forma: prova gratuita → pannello, prenotazione e lista d'attesa → check-in; per Agenda: prenotazione → conferma o approvazione nel pannello → spostamento e cancellazione dal codice, widget in un `iframe` del dominio autorizzato; per Bottega: carrello → checkout → ordine nel pannello → spedizione, reso dall'area personale → rimborso, promozione con prezzo a 30 giorni).
 - [ ] Stati vuoti, errori di validazione, conferme e annullamenti si comportano come previsto.
 - [ ] I dati demo si ripristinano correttamente.
 
@@ -75,5 +75,6 @@ flowchart LR
 | Tavola | `templates/ristorante` | `tavola-ristorante` |
 | Forma | `templates/fitness` | `forma-fitness` |
 | Agenda | `templates/prenotazioni` | `agenda-prenotazioni` |
+| Bottega | `templates/ecommerce` | `bottega-ecommerce` |
 
 Ogni `vercel.json` di template imposta install, build, regione `fra1` e `ignoreCommand`, così un commit che non tocca il template non lo ricompila.

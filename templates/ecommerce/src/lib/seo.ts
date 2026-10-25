@@ -18,7 +18,11 @@ export function storeJsonLd(settings: ShopSettings, siteUrl: string) {
         email: settings.legal.email,
         legalName: settings.legal.company,
         vatID: settings.legal.vatNumber,
-        address: { "@type": "PostalAddress", streetAddress: settings.legal.address, addressCountry: "IT" },
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: settings.legal.address,
+          addressCountry: "IT",
+        },
       },
       {
         "@type": "WebSite",

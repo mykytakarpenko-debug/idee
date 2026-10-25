@@ -132,7 +132,10 @@ function OrdersTab({ customer }: { customer: Customer }) {
                 ) : null}
                 <p className="text-sm text-fg-muted sm:ml-auto">
                   {formatDate(order.createdAt, "short")} ·{" "}
-                  {t.orderSummary(copy.common.items(itemsCount(order)), formatCurrency(order.total))}
+                  {t.orderSummary(
+                    copy.common.items(itemsCount(order)),
+                    formatCurrency(order.total),
+                  )}
                 </p>
               </div>
               <div className="mt-4 flex gap-2">
@@ -140,7 +143,10 @@ function OrdersTab({ customer }: { customer: Customer }) {
                   const product = products.find((p) => p.id === line.productId);
                   const variant = product?.variants.find((v) => v.id === line.variantId);
                   return (
-                    <div key={`${line.variantId}-${i}`} className="size-14 overflow-hidden rounded-lg bg-surface-2">
+                    <div
+                      key={`${line.variantId}-${i}`}
+                      className="size-14 overflow-hidden rounded-lg bg-surface-2"
+                    >
                       {product ? (
                         <ProductArt
                           kind={product.art}
@@ -238,14 +244,28 @@ function ProfileTab({ customer }: { customer: Customer }) {
         <Field label={f.street} name="street" error={errors.street} className="sm:col-span-6">
           {(props) => <Input {...props} {...text("street")} autoComplete="street-address" />}
         </Field>
-        <Field label={f.postalCode} name="postalCode" error={errors.postalCode} className="sm:col-span-2">
-          {(props) => <Input {...props} {...text("postalCode")} inputMode="numeric" autoComplete="postal-code" />}
+        <Field
+          label={f.postalCode}
+          name="postalCode"
+          error={errors.postalCode}
+          className="sm:col-span-2"
+        >
+          {(props) => (
+            <Input
+              {...props}
+              {...text("postalCode")}
+              inputMode="numeric"
+              autoComplete="postal-code"
+            />
+          )}
         </Field>
         <Field label={f.city} name="city" error={errors.city} className="sm:col-span-3">
           {(props) => <Input {...props} {...text("city")} autoComplete="address-level2" />}
         </Field>
         <Field label={f.province} name="province" error={errors.province} className="sm:col-span-1">
-          {(props) => <Input {...props} {...text("province")} maxLength={2} className="uppercase" />}
+          {(props) => (
+            <Input {...props} {...text("province")} maxLength={2} className="uppercase" />
+          )}
         </Field>
         <Field label={f.phone} name="phone" error={errors.phone} className="sm:col-span-6">
           {(props) => <Input {...props} {...text("phone")} type="tel" autoComplete="tel" />}
@@ -272,7 +292,10 @@ function PrivacyTab({ customer }: { customer: Customer }) {
   const signOut = useSessionStore((state) => state.signOut);
   const [confirm, setConfirm] = useState(false);
   return (
-    <section aria-labelledby="privacy-titolo" className="max-w-2xl rounded-2xl border border-line bg-surface p-6">
+    <section
+      aria-labelledby="privacy-titolo"
+      className="max-w-2xl rounded-2xl border border-line bg-surface p-6"
+    >
       <h2 id="privacy-titolo" className="text-sm font-semibold text-fg">
         {t.privacyTitle}
       </h2>

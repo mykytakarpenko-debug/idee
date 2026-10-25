@@ -1,4 +1,5 @@
 import { copy } from "@/content/it";
+import { includedVat } from "@/lib/domain/pricing";
 import type { Order, Product } from "@/lib/domain/types";
 import { formatCurrency, formatDate } from "@/lib/format";
 import { ProductArt } from "@/components/product/product-art";
@@ -38,36 +39,40 @@ export function OrderLines({ order, products }: { order: Order; products: readon
 
 export function OrderTotals({ order, vatRate }: { order: Order; vatRate: number }) {
   const c = copy.cart;
-  const vat = order.total - Math.round(order.total / (1 + vatRate));
+  const vat = includedVat(order.total, vatRate);
   return (
-    <dl className="space-y-1.5 text-sm">
-      <div className="flex justify-between gap-4">
-        <dt className="text-fg-muted">{c.subtotal}</dt>
-        <dd className="tabular-nums">{formatCurrency(order.subtotal)}</dd>
-      </div>
-      {order.discount > 0 ? (
+    <div>
+      <dl className="space-y-1.5 text-sm">
+        <div className="flex justify-between gap-4">
+          <dt className="text-fg-muted">{c.subtotal}</dt>
+          <dd className="tabular-nums">{formatCurrency(order.subtotal)}</dd>
+        </div>
+        {order.discount > 0 ? (
+          <div className="flex justify-between gap-4">
+            <dt className="text-fg-muted">
+              {c.discount}
+              {order.coupon ? ` (${order.coupon})` : ""}
+            </dt>
+            <dd className="text-success tabular-nums">−{formatCurrency(order.discount)}</dd>
+          </div>
+        ) : null}
         <div className="flex justify-between gap-4">
           <dt className="text-fg-muted">
-            {c.discount}
-            {order.coupon ? ` (${order.coupon})` : ""}
+            {c.shipping} · {copy.shippingMethods[order.shippingMethod]}
           </dt>
-          <dd className="text-success tabular-nums">−{formatCurrency(order.discount)}</dd>
+          <dd className="tabular-nums">
+            {order.shipping === 0 ? copy.common.free : formatCurrency(order.shipping)}
+          </dd>
         </div>
-      ) : null}
-      <div className="flex justify-between gap-4">
-        <dt className="text-fg-muted">
-          {c.shipping} · {copy.shippingMethods[order.shippingMethod]}
-        </dt>
-        <dd className="tabular-nums">
-          {order.shipping === 0 ? copy.common.free : formatCurrency(order.shipping)}
-        </dd>
-      </div>
-      <div className="flex justify-between gap-4 border-t border-line pt-2 font-semibold">
-        <dt>{c.total}</dt>
-        <dd className="tabular-nums">{formatCurrency(order.total)}</dd>
-      </div>
-      <p className="text-right text-xs text-fg-muted">{c.vatIncluded(formatCurrency(vat))}</p>
-    </dl>
+        <div className="flex justify-between gap-4 border-t border-line pt-2 font-semibold">
+          <dt>{c.total}</dt>
+          <dd className="tabular-nums">{formatCurrency(order.total)}</dd>
+        </div>
+      </dl>
+      <p className="mt-1.5 text-right text-xs text-fg-muted">
+        {c.vatIncluded(formatCurrency(vat))}
+      </p>
+    </div>
   );
 }
 

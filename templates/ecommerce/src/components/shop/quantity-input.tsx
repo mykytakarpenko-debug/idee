@@ -55,7 +55,7 @@ export function QuantityInput({
           if (Number.isFinite(n)) onChange(clamp(n));
         }}
         className={cn(
-          "w-10 bg-transparent text-center text-sm font-medium text-fg tabular-nums outline-none [appearance:textfield] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-focus [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
+          "w-10 [appearance:textfield] bg-transparent text-center text-sm font-medium text-fg tabular-nums outline-none focus-visible:rounded focus-visible:outline-2 focus-visible:outline-focus [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
           size === "sm" ? "h-8" : "h-10",
         )}
       />

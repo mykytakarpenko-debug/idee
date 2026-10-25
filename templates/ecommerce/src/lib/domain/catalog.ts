@@ -36,11 +36,7 @@ export const DEFAULT_FILTERS: CatalogFilters = {
 
 /** Minuscole e senza accenti: "Ciotola Onda" e "ciotola onda" coincidono. */
 export function normalize(text: string): string {
-  return text
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase()
-    .trim();
+  return text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
 }
 
 export interface RatingSummary {
@@ -126,7 +122,11 @@ export function filterProducts(
 }
 
 /** Stessa categoria o stesso venditore, disponibili per primi. */
-export function relatedProducts(product: Product, products: readonly Product[], limit = 4): Product[] {
+export function relatedProducts(
+  product: Product,
+  products: readonly Product[],
+  limit = 4,
+): Product[] {
   return products
     .filter(
       (p) =>

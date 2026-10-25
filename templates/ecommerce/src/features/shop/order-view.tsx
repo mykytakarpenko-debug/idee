@@ -52,7 +52,7 @@ export function OrderView({ number }: { number: string }) {
 
   const address = order.shippingAddress;
   return (
-    <Container className="animate-page-in max-w-4xl py-10 sm:py-14">
+    <Container className="max-w-4xl animate-page-in py-10 sm:py-14">
       {justPlaced ? (
         <div className="mb-8 flex gap-4 rounded-2xl border border-line bg-surface p-6">
           <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-success-soft">
@@ -93,7 +93,10 @@ export function OrderView({ number }: { number: string }) {
       ) : null}
 
       <div className="mt-8 grid gap-8 md:grid-cols-[1.4fr_1fr]">
-        <section aria-labelledby="articoli" className="rounded-2xl border border-line bg-surface p-6">
+        <section
+          aria-labelledby="articoli"
+          className="rounded-2xl border border-line bg-surface p-6"
+        >
           <h2 id="articoli" className="text-sm font-semibold text-fg">
             {o.items}
           </h2>
@@ -104,7 +107,10 @@ export function OrderView({ number }: { number: string }) {
         </section>
 
         <div className="space-y-6">
-          <section aria-labelledby="consegna" className="rounded-2xl border border-line bg-surface p-6 text-sm">
+          <section
+            aria-labelledby="consegna"
+            className="rounded-2xl border border-line bg-surface p-6 text-sm"
+          >
             <h2 id="consegna" className="font-semibold text-fg">
               {order.shippingMethod === "pickup" ? o.pickupAt : o.shippingTo}
             </h2>
@@ -130,7 +136,10 @@ export function OrderView({ number }: { number: string }) {
               </>
             ) : null}
           </section>
-          <section aria-labelledby="avanzamento" className="rounded-2xl border border-line bg-surface p-6">
+          <section
+            aria-labelledby="avanzamento"
+            className="rounded-2xl border border-line bg-surface p-6"
+          >
             <h2 id="avanzamento" className="text-sm font-semibold text-fg">
               {o.timeline}
             </h2>

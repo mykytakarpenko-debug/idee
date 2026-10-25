@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { copy } from "@/content/it";
-import { AgendaView } from "@/features/panel/agenda-view";
+import { DashboardView } from "@/features/panel/dashboard-view";
 
-export const metadata: Metadata = { title: copy.agenda.title };
+export const metadata: Metadata = { title: copy.dashboard.title };
 
 export default function Page() {
-  return <AgendaView />;
+  return <DashboardView />;
 }

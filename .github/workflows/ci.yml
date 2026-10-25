@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        template: [gestionale, ristorante, fitness, prenotazioni]
+        template: [gestionale, ristorante, fitness, prenotazioni, ecommerce]
     defaults:
       run:
         working-directory: templates/${{ matrix.template }}

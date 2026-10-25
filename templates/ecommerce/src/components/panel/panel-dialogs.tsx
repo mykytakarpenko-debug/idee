@@ -2,8 +2,9 @@
 
 import { useUiStore } from "@/store/ui-store";
 import { Dialog } from "@/components/ui/dialog";
-import { AppointmentDialog } from "@/features/panel/appointment-dialog";
-import { ServiceFormDialog } from "@/features/panel/service-form-dialog";
+import { CustomerDialog } from "@/features/panel/customer-dialog";
+import { OrderDialog } from "@/features/panel/order-dialog";
+import { ProductFormDialog } from "@/features/panel/product-form-dialog";
 
 /** Modali globali del pannello, apribili ovunque con openDialog(...). */
 export function PanelDialogs() {
@@ -14,11 +15,12 @@ export function PanelDialogs() {
   if (!dialog) return null;
   return (
     <Dialog open={open} onOpenChange={(next) => !next && close()}>
-      {dialog.type === "appointment" ? (
-        <AppointmentDialog key={key} id={dialog.id} onDone={close} />
+      {dialog.type === "order" ? <OrderDialog key={key} id={dialog.id} onDone={close} /> : null}
+      {dialog.type === "product" ? (
+        <ProductFormDialog key={key} id={dialog.id} onDone={close} />
       ) : null}
-      {dialog.type === "service" ? (
-        <ServiceFormDialog key={key} id={dialog.id} onDone={close} />
+      {dialog.type === "customer" ? (
+        <CustomerDialog key={key} id={dialog.id} onDone={close} />
       ) : null}
     </Dialog>
   );

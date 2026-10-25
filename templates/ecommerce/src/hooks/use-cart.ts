@@ -1,13 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import {
-  cartCount,
-  cartTotals,
-  checkCoupon,
-  priceCart,
-  type CouponCheck,
-} from "@/lib/domain/cart";
+import { cartCount, cartTotals, checkCoupon, priceCart, type CouponCheck } from "@/lib/domain/cart";
 import { stockIssues } from "@/lib/domain/inventory";
 import type { ShippingMethod } from "@/lib/domain/types";
 import { useCartStore } from "@/store/cart-store";

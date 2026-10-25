@@ -47,7 +47,10 @@ export function ReturnDialog({ order, onDone }: { order: Order; onDone: () => vo
             <legend className="text-[13px] font-medium text-fg">{t.returnItems}</legend>
             <ul className="mt-2 divide-y divide-line">
               {order.lines.map((line, index) => (
-                <li key={`${line.variantId}-${index}`} className="flex items-center justify-between gap-3 py-2.5">
+                <li
+                  key={`${line.variantId}-${index}`}
+                  className="flex items-center justify-between gap-3 py-2.5"
+                >
                   <label htmlFor={`${id}-${index}`} className="text-sm text-fg">
                     {line.name}
                     <span className="block text-[13px] text-fg-muted">{line.variantName}</span>
@@ -79,7 +82,12 @@ export function ReturnDialog({ order, onDone }: { order: Order; onDone: () => vo
           </fieldset>
           <Field label={t.returnReason} name="reason" hint={t.returnReasonHint} optional>
             {(props) => (
-              <Textarea {...props} value={reason} onChange={(e) => setReason(e.target.value)} rows={2} />
+              <Textarea
+                {...props}
+                value={reason}
+                onChange={(e) => setReason(e.target.value)}
+                rows={2}
+              />
             )}
           </Field>
           <div className="rounded-lg bg-surface-2 p-3 text-sm">

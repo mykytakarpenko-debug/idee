@@ -73,7 +73,8 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-line">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-fg-muted sm:px-6">
-          © {settings.name} · {f.company(settings.legal.company, settings.legal.vatNumber, settings.legal.rea)}
+          © {settings.name} ·{" "}
+          {f.company(settings.legal.company, settings.legal.vatNumber, settings.legal.rea)}
         </p>
       </div>
     </footer>

@@ -33,7 +33,10 @@ export interface StockIssue {
 }
 
 /** Righe che superano la disponibilità attuale (da ricontrollare alla conferma). */
-export function stockIssues(lines: readonly CartLine[], products: readonly Product[]): StockIssue[] {
+export function stockIssues(
+  lines: readonly CartLine[],
+  products: readonly Product[],
+): StockIssue[] {
   const issues: StockIssue[] = [];
   for (const line of lines) {
     const found = findVariant(products, line.productId, line.variantId);

@@ -3,12 +3,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { createDemoData, DEMO_SETTINGS } from "@/lib/demo/seed";
-import {
-  cartTotals,
-  checkCoupon,
-  priceCart,
-  type CartLine,
-} from "@/lib/domain/cart";
+import { cartTotals, checkCoupon, priceCart, type CartLine } from "@/lib/domain/cart";
 import { toISODate } from "@/lib/domain/dates";
 import { adjustStock, stockIssues, type StockIssue } from "@/lib/domain/inventory";
 import { canCancel, nextStatus, orderNumber, refundAmount } from "@/lib/domain/orders";
@@ -281,7 +276,10 @@ export const useDataStore = create<DataState>()(
         // Gli articoli rientrano a magazzino quando il reso viene rimborsato.
         const restock =
           status === "refunded"
-            ? order.returnRequest.lines.map((r) => ({ ...order.lines[r.index]!, quantity: r.quantity }))
+            ? order.returnRequest.lines.map((r) => ({
+                ...order.lines[r.index]!,
+                quantity: r.quantity,
+              }))
             : [];
         set({
           orders: replaceById(state.orders, id, (o) => ({
@@ -316,7 +314,9 @@ export const useDataStore = create<DataState>()(
 
       updateProduct(id, input) {
         set((state) => ({
-          products: state.products.map((p) => (p.id === id ? withPriceHistory({ ...p, ...input }) : p)),
+          products: state.products.map((p) =>
+            p.id === id ? withPriceHistory({ ...p, ...input }) : p,
+          ),
         }));
       },
 

@@ -13,9 +13,9 @@ export default function WithdrawalPage() {
   return (
     <LegalPage title={copy.legal.withdrawal}>
       <p>
-        Hai il diritto di recedere dal contratto, senza indicarne le ragioni, entro{" "}
-        {s.returnDays} giorni dal giorno in cui tu, o una persona da te indicata diversa dal
-        vettore, ricevi i beni (artt. 52 e seguenti del Codice del Consumo).
+        Hai il diritto di recedere dal contratto, senza indicarne le ragioni, entro {s.returnDays}{" "}
+        giorni dal giorno in cui tu, o una persona da te indicata diversa dal vettore, ricevi i beni
+        (artt. 52 e seguenti del Codice del Consumo).
       </p>
 
       <h2>Come esercitarlo</h2>
@@ -37,9 +37,8 @@ export default function WithdrawalPage() {
       <p>
         Restituisci i prodotti entro 14 giorni dalla comunicazione del recesso, integri e con la
         confezione originale se possibile. Le spese dirette di restituzione sono a tuo carico, salvo
-        prodotto difettoso o non conforme. Sei responsabile solo della diminuzione di valore
-        dovuta a una manipolazione diversa da quella necessaria per verificarne natura e
-        funzionamento.
+        prodotto difettoso o non conforme. Sei responsabile solo della diminuzione di valore dovuta
+        a una manipolazione diversa da quella necessaria per verificarne natura e funzionamento.
       </p>
 
       <h2>Rimborso</h2>

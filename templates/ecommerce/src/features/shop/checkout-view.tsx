@@ -140,7 +140,10 @@ function CheckoutForm({ customer }: { customer: Customer | null }) {
       {customer ? (
         <p className="mt-3 text-sm text-fg-muted">{t.signedInAs(customer.email)}</p>
       ) : (
-        <Link href={routes.login} className="mt-3 inline-block text-sm text-accent-text hover:underline">
+        <Link
+          href={routes.login}
+          className="mt-3 inline-block text-sm text-accent-text hover:underline"
+        >
           {t.signIn}
         </Link>
       )}
@@ -246,7 +249,9 @@ function CheckoutForm({ customer }: { customer: Customer | null }) {
                 />
               ))}
             </div>
-            <p className="mt-3 rounded-lg bg-info-soft px-3 py-2 text-[13px] text-fg">{t.demoPayment}</p>
+            <p className="mt-3 rounded-lg bg-info-soft px-3 py-2 text-[13px] text-fg">
+              {t.demoPayment}
+            </p>
           </FormSection>
 
           <Field label={t.notes} name="notes" error={errors.notes} optional>
@@ -294,12 +299,20 @@ function CheckoutForm({ customer }: { customer: Customer | null }) {
                   <span>{t.terms}</span>
                 </label>
                 <p id="terms-links" className="mt-1 ml-7 text-[13px]">
-                  <Link href={routes.conditions} target="_blank" className="text-accent-text underline underline-offset-2">
+                  <Link
+                    href={routes.conditions}
+                    target="_blank"
+                    className="text-accent-text underline underline-offset-2"
+                  >
                     {t.conditionsLink}
                     <span className="sr-only"> {copy.a11y.newTab}</span>
                   </Link>
                   {" · "}
-                  <Link href={routes.withdrawal} target="_blank" className="text-accent-text underline underline-offset-2">
+                  <Link
+                    href={routes.withdrawal}
+                    target="_blank"
+                    className="text-accent-text underline underline-offset-2"
+                  >
                     {t.withdrawalLink}
                     <span className="sr-only"> {copy.a11y.newTab}</span>
                   </Link>
@@ -320,7 +333,10 @@ function CheckoutForm({ customer }: { customer: Customer | null }) {
               </label>
               <p className="text-xs text-fg-muted">
                 {t.privacyNote}{" "}
-                <Link href={routes.privacy} className="text-accent-text underline underline-offset-2">
+                <Link
+                  href={routes.privacy}
+                  className="text-accent-text underline underline-offset-2"
+                >
                   {copy.site.footer.privacy}
                 </Link>
               </p>

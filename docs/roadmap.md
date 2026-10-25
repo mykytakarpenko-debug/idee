@@ -39,7 +39,9 @@ Template completo: vedi [`templates/prenotazioni`](../templates/prenotazioni). S
 - **Stile:** fiducia e semplicità; accento petrolio.
 - **Note legali:** informativa e consensi al momento della prenotazione; politiche di cancellazione e acconti trasparenti; promemoria solo per i servizi richiesti.
 
-## 5. Bottega — e-commerce e marketplace
+## 5. Bottega — e-commerce e marketplace ✅
+
+Template completo: vedi [`templates/ecommerce`](../templates/ecommerce). Sintesi iniziale:
 
 - **Obiettivo:** negozio online orientato alla conversione, estendibile a marketplace multi-venditore.
 - **Pagine:** home, catalogo con filtri, scheda prodotto (varianti, disponibilità, recensioni), carrello, checkout in un'unica pagina, area cliente (ordini, resi, indirizzi); pannello con prodotti, ordini, clienti, venditori e commissioni (versione marketplace).

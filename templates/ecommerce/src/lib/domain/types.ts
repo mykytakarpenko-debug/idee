@@ -141,12 +141,7 @@ export type ShippingMethod = "standard" | "express" | "pickup";
 export type PaymentMethod = "card" | "paypal" | "bank_transfer";
 
 export type OrderStatus =
-  | "awaiting_payment"
-  | "paid"
-  | "processing"
-  | "shipped"
-  | "delivered"
-  | "cancelled";
+  "awaiting_payment" | "paid" | "processing" | "shipped" | "delivered" | "cancelled";
 
 export interface OrderLine {
   productId: ID;

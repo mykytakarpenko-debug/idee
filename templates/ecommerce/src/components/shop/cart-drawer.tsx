@@ -75,7 +75,11 @@ export function CartDrawer() {
                 <Link
                   href={routes.cart}
                   onClick={close}
-                  className={buttonClasses({ variant: "secondary", size: "lg", className: "w-full" })}
+                  className={buttonClasses({
+                    variant: "secondary",
+                    size: "lg",
+                    className: "w-full",
+                  })}
                 >
                   {c.openPage}
                 </Link>

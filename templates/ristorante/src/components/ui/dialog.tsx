@@ -42,6 +42,8 @@ export function DialogContent({
       <DialogPrimitive.Content
         className={cn(
           "fixed z-50 flex flex-col overflow-hidden bg-surface shadow-lg outline-none",
+          // Un <form> che avvolge corpo e piè di pagina eredita il layout a colonna.
+          "[&>form]:flex [&>form]:min-h-0 [&>form]:flex-1 [&>form]:flex-col",
           // Mobile: pannello dal basso
           "right-0 bottom-0 left-0 max-h-[92dvh] rounded-t-2xl pb-[env(safe-area-inset-bottom)]",
           "max-sm:data-[state=closed]:animate-sheet-up-out max-sm:data-[state=open]:animate-sheet-up-in",

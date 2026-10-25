@@ -48,7 +48,9 @@ Template completo: vedi [`templates/ecommerce`](../templates/ecommerce). Sintesi
 - **Stile:** il prodotto in primo piano; neutri con accento ambra, schede prodotto molto curate.
 - **Note legali:** Codice del Consumo (informazioni precontrattuali, recesso di 14 giorni, garanzia legale), prezzi con IVA e indicazione del prezzo precedente negli sconti (direttiva Omnibus), European Accessibility Act per l'e-commerce, PSP conforme a PCI-DSS, cookie banner per gli strumenti di marketing.
 
-## 6. Portale — dashboard amministrative e portali clienti
+## 6. Portale — dashboard amministrative e portali clienti ✅
+
+Template completo: vedi [`templates/portale`](../templates/portale). Sintesi iniziale:
 
 - **Obiettivo:** area riservata B2B in cui i clienti consultano documenti, ticket, fatture e stato dei progetti; dashboard per gli amministratori.
 - **Pagine:** accesso con MFA, panoramica cliente, documenti e firma, ticket di assistenza con conversazioni, fatture e pagamenti, impostazioni del team e dei permessi; lato amministrazione: account, ruoli, registro delle attività, analytics.
